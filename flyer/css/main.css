@@ -181,7 +181,7 @@ html,body{
 
 .sequence{
     width: 80%;
-    height: 50px;
+    height: 30px;
     margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
@@ -203,10 +203,12 @@ html,body{
 
 .sequence-left{
     background-color: #FFE37F;
+    border: 10px solid #FFE37F;
 }
 
 .sequence-right{
     background-color: #8DBDC7;
+    border: 10px solid #FFE37F;
 }
 
 .sequence-left-off{
