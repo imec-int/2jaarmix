@@ -1,23 +1,37 @@
-$(document).click(function(event){
-
-	event.preventDefault();
-	console.log("wadde");
-	playSound(bufferList[0],0);
-	interval = setInterval("sequenceTick();", 400);
-	hasStarted = true;
-	$(document).unbind("click");
-
-	return false;
-});
+function setClickHandlers () {
 
 
-$(".sequence-left-group > .sequence").click(function(event){
-	event.preventDefault();
-	$(this).toggleClass("sequence-left");
-	$(this).toggleClass("sequence-left-off");
-	updateLeftArray();
-	return false;
-});
+	$(".sequence-left-group > .sequence").click(function(event){
+		event.preventDefault();
+		$(this).toggleClass("sequence-left");
+		$(this).toggleClass("sequence-left-off");
+		updateLeftArray();
+
+		if(!hasStarted){
+			playSound(bufferList[0],0);
+			interval = setInterval("sequenceTick();", 400);
+			hasStarted = true;
+		}
+
+		return false;
+	});
+
+	$(".sequence-right-group > .sequence").click(function(event){
+		event.preventDefault();
+		$(this).toggleClass("sequence-right");
+		$(this).toggleClass("sequence-right-off");
+		updateRightArray();
+
+		if(!hasStarted){
+			playSound(bufferList[0],0);
+			interval = setInterval("sequenceTick();", 400);
+			hasStarted = true;
+		}
+
+		return false;
+	});
+
+}
 
 function updateLeftArray(){
 	$(".sequence-left-group > .sequence").each(function(i,el){
@@ -30,15 +44,7 @@ function updateRightArray(){
 	})
 }
 
-$(".sequence-right-group > .sequence").click(function(event){
-	event.preventDefault();
-	$(this).toggleClass("sequence-right");
-	$(this).toggleClass("sequence-right-off");
-	updateRightArray();
-	return false;
-});
-
-
+var hasStarted = false;
 var interval = 0;
 var currentSequence = 0;
 var context;
@@ -58,6 +64,11 @@ function init(){
 
 	//init sound
 	initSound();
+
+	setClickHandlers();
+
+	//fastclick for mobile devices:
+	FastClick.attach(document.body);
 }
 
 function sequenceTick(){
