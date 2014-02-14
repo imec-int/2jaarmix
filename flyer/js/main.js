@@ -11,9 +11,11 @@ function setClickHandlers () {
 			// $(".title > h2").text(titleArray[currentSequence]);
 			$(".title").css("background-image", "url(/img/gear.png)");
 			playSound(bufferList[0],0);
+			$(".title-container > span").css("font-size","10vw");
 			$(".title-container > span").text(titleArray2[0]);
 			// interval = setInterval("sequenceTick();", 400);
 			hasStarted = true;
+			initBackSound();
 		}
 
 		return false;
@@ -29,8 +31,10 @@ function setClickHandlers () {
 			// $(".title > h2").text(titleArray[currentSequence]);
 			$(".title").css("background-image", "url(/img/gear.png)");
 			playSound(bufferList[0],0);
+			$(".title-container > span").css("font-size","10vw");
 			$(".title-container > span").text(titleArray2[0]);
 			hasStarted = true;
+			initBackSound();
 		}
 
 		return false;
@@ -94,6 +98,7 @@ function init(){
 function sequenceTick(){
 	if(currentSequence==3){
 		currentSequence = 0;
+		$("#flow-sequencer").css("height",$(".sequence-left-group > .sequence").height()  +30);
 		if(hasStarted){
 			altSequence++;
 			if(altSequence==4)
@@ -136,6 +141,8 @@ function initSound() {
     [
       '/sounds/hihat.wav',
       '/sounds/kick.wav',
+      '/sounds/back1.wav',
+      '/sounds/back2.wav',
     ],
     finishedLoading
     );
@@ -144,10 +151,21 @@ function initSound() {
   startTime = context.currentTime + 0.0100;
 }
 
+function initBackSound(){
+	var source = context.createBufferSource();
+	source.buffer = bufferList[2];
+	source.loop = true;
+	// var gainNode = context.createGainNode();
+	// // Make a gain node.
+	// source.connect(gainNode);
+	source.connect(context.destination);
+	if (!source.start)
+	  source.start = source.noteOn;
+	source.start(startTime);
+}
+
 function finishedLoading(_bufferList) {
 	bufferList = _bufferList;
-
-
 }
 
 // var kick = BUFFERS.kick;
