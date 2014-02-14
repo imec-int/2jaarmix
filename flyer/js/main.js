@@ -143,10 +143,10 @@ function initSound() {
   bufferLoader = new BufferLoader(
     context,
     [
-      '/sounds/hihat.wav',
-      '/sounds/kick.wav',
-      '/sounds/back2.wav',
-      '/sounds/back1.wav',
+      '/sounds/hihat.mp3',
+      '/sounds/kick.mp3',
+      '/sounds/back2.mp3',
+      '/sounds/back1.mp3',
     ],
     finishedLoading
     );
