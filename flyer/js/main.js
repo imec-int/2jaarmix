@@ -77,6 +77,7 @@ var bufferList;
 var sources = [];
 var gains = [];
 var backPLaying = false;
+var gainNode;
 
 window.onload = init;
 
@@ -132,8 +133,6 @@ function sequenceTick(){
 		playSound(bufferList[0],startTime);
 	if(rightArray[currentSequence])
 		playSound(bufferList[1],startTime);
-
-	// console.log(leftArray);
 }
 
 function initSound() {
@@ -160,10 +159,9 @@ function initBackSound(){
 	var source = context.createBufferSource();
 	source.buffer = bufferList[2];
 	source.loop = true;
-	// var gainNode = context.createGainNode();
-	// // Make a gain node.
-	// source.connect(gainNode);
-	source.connect(context.destination);
+	gainNode = context.createGainNode();
+	source.connect(gainNode);
+	gainNode.connect(context.destination);
 	if (!source.start)
 	  source.start = source.noteOn;
 	source.start(startTime);
@@ -184,6 +182,39 @@ function playSound(buffer, time) {
 	if (!source.start)
 	  source.start = source.noteOn;
 	source.start(time);
+}
+
+
+// gain afhangen van motion:
+
+// knippen en plakken in de main.js en gebruiken waar nodig:
+
+$(function(){
+	var motionsound = new Motionsound({
+		onLeftVolumeChanged: leftVolumeChanged,
+		onRightVolumeChanged: rightVolumeChanged
+	});
+	motionsound.init();
+});
+
+
+function leftVolumeChanged(value){
+	// value is een waarde tussen 0 en 1
+	// konsole.log( 'left volume: ' + Math.round(value*100)/100 );
+
+	if(gainNode){
+		gainNode.gain.value = value;
+	}
+}
+
+
+function rightVolumeChanged(value){
+	// value is een waarde tussen 0 en 1
+	// konsole.log( 'right volume: ' + Math.round(value*100)/100 );
+
+	if(gainNode){
+		gainNode.gain.value = value;
+	}
 }
 
 
