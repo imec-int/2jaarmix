@@ -141,8 +141,8 @@ function initSound() {
     [
       '/sounds/hihat.wav',
       '/sounds/kick.wav',
-      '/sounds/back1.wav',
       '/sounds/back2.wav',
+      '/sounds/back1.wav',
     ],
     finishedLoading
     );
