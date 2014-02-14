@@ -46,6 +46,33 @@ function setClickHandlers () {
 		return false;
 	});
 
+	$("#helmet-left").click(function(event){
+		if(hasStarted){
+			activeBlocks--;
+			if(activeBlocks<0)
+				activeBlocks = 0;
+			// console.log("helmet left");
+			$(".sequence-container").css("left", activeBlocks*-50 +"%");
+		}
+	});
+
+	$("#helmet-right").click(function(event){
+		if(hasStarted){
+			activeBlocks++;
+			if(activeBlocks==6)
+				activeBlocks = 5;
+			// console.log("helmet right");
+			$(".sequence-container").css("left", activeBlocks*-50 +"%");
+		}
+	});
+}
+
+function moveDiv (div, activeBlock) {
+	div.css({
+		        'transform': 'translate3d('+x+', '+y+', 0) scale3d(1, 1, 1)',
+		   '-moz-transform': 'translate3d('+x+', '+y+', 0) scale3d(1, 1, 1)',
+		'-webkit-transform': 'translate3d('+x+', '+y+', 0) scale3d(1, 1, 1)'
+	});
 }
 
 function updateLeftArray(){
@@ -77,6 +104,7 @@ var bufferList;
 var sources = [];
 var gains = [];
 var backPLaying = false;
+var activeBlocks = 0;
 
 window.onload = init;
 
@@ -105,10 +133,10 @@ function sequenceTick(){
 				backPLaying = true;
 			}
 
-			altSequence++;
-			if(altSequence==4)
-				altSequence=0
-			$(".title-container > span").text(titleArray2[altSequence]);
+			// altSequence++;
+			// if(altSequence==4)
+			// 	altSequence=0
+			// $(".title-container > span").text(titleArray2[altSequence]);
 		}
 
 
@@ -122,10 +150,9 @@ function sequenceTick(){
 	$("body").css("background-color","rgb("+(Math.floor(Math.random()*128))+","+(Math.floor(Math.random()*64))+","+(Math.floor(Math.random()*128)+128)+")");
 	if(!hasStarted){
 		$(".title-container > span").text(titleArray1[currentSequence]);
+	}else{
+		$(".title-container > span").text(titleArray2[currentSequence]);
 	}
-	// else{
-	// 	$(".title-container > span").text(titleArray2[currentSequence]);
-	// }
 
 
 	if(leftArray[currentSequence])
