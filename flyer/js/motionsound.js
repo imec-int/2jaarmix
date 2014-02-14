@@ -21,6 +21,6 @@ var Motionsound = function (options){
 
 $(function(){
 	var motionsound = new Motionsound();
-	motionsound.init();
+	// motionsound.init();
 });
 
