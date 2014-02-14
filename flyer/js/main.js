@@ -11,6 +11,7 @@ function setClickHandlers () {
 			// $(".title > h2").text(titleArray[currentSequence]);
 			$(".title").css("background-image", "url(/img/gear.png)");
 			playSound(bufferList[0],0);
+			$(".title-container > span").text(titleArray2[0]);
 			// interval = setInterval("sequenceTick();", 400);
 			hasStarted = true;
 		}
@@ -28,7 +29,7 @@ function setClickHandlers () {
 			// $(".title > h2").text(titleArray[currentSequence]);
 			$(".title").css("background-image", "url(/img/gear.png)");
 			playSound(bufferList[0],0);
-
+			$(".title-container > span").text(titleArray2[0]);
 			hasStarted = true;
 		}
 
@@ -57,10 +58,11 @@ function updateRightArray(){
 // var colors = ["#8DBDC7","#FFE37F","#F0C271","#E3A368","#D18461"];
 var colors = ["#0A87BF","#03657F","#00F2FF","#011940","#0781E5", "#BF09A1","#13207F","#E098FF","#120040","#A841E5"];
 var titleArray1 = ["LET'S","MAKE","SOME","MUSIC"];
-var titleArray2 = ["HACK","THIS","PRESS","HERE"];
+var titleArray2 = ["MEDIA HACKATHON","Zat. 15/03","AB BRUSSEL","Inschrijven!"];
 var hasStarted = false;
 var interval = 0;
 var currentSequence = 0;
+var altSequence = 0;
 var context;
 var bufferLoader;
 var leftArray = [false,false,false,false];
@@ -85,25 +87,35 @@ function init(){
 
 	//fastclick for mobile devices:
 	FastClick.attach(document.body);
+	$("#flow-sequencer").css("height",$(".sequence-left-group > .sequence").height()  +30);
 	interval = setInterval("sequenceTick();", 400);
 }
 
 function sequenceTick(){
 	if(currentSequence==3){
 		currentSequence = 0;
+		if(hasStarted){
+			altSequence++;
+			if(altSequence==4)
+				altSequence=0
+			$(".title-container > span").text(titleArray2[altSequence]);
+		}
+
+
 	}else{
 		currentSequence ++;
 	}
 	var top = parseInt($("#flow-sequencer").css("top"), 10);
 	// console.log("rgb("+(Math.floor(Math.random()*128))+","+(Math.floor(Math.random()*64))+","+(Math.floor(Math.random()*255))+")");
-	$("#flow-sequencer").css("top",currentSequence*70);
+	$("#flow-sequencer").css("top",currentSequence*$("#flow-sequencer").height() +5);
 	// $("body").css("background-color",colors[Math.floor(Math.random()*colors.length)]);
-	$("body").css("background-color","rgb("+(Math.floor(Math.random()*128))+","+(Math.floor(Math.random()*64))+","+(Math.floor(Math.random()*255))+")");
+	$("body").css("background-color","rgb("+(Math.floor(Math.random()*128))+","+(Math.floor(Math.random()*64))+","+(Math.floor(Math.random()*128)+128)+")");
 	if(!hasStarted){
-		$(".title > h2").text(titleArray1[currentSequence]);
-	}else{
-		$(".title > h2").text(titleArray2[currentSequence]);
+		$(".title-container > span").text(titleArray1[currentSequence]);
 	}
+	// else{
+	// 	$(".title-container > span").text(titleArray2[currentSequence]);
+	// }
 
 
 	if(leftArray[currentSequence])
