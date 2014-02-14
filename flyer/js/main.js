@@ -31,6 +31,14 @@ function setClickHandlers () {
 		return false;
 	});
 
+	$(".title").click(function(event){
+		event.preventDefault();
+		$(".title").hide();
+		$(".body").css("-webkit-filter", "hue-rotate(50deg)");
+
+		return false;
+	});
+
 }
 
 function updateLeftArray(){
@@ -43,7 +51,8 @@ function updateRightArray(){
 		rightArray[i] = $(el).hasClass("sequence-right");
 	})
 }
-
+var colors = ["#8DBDC7","#FFE37F","#F0C271","#E3A368","#D18461"];
+var titleArray = ["HACK","THIS","PRESS","HERE"];
 var hasStarted = false;
 var interval = 0;
 var currentSequence = 0;
@@ -80,6 +89,10 @@ function sequenceTick(){
 	var top = parseInt($("#flow-sequencer").css("top"), 10);
 	// console.log("sequenceTick - "+ top);
 	$("#flow-sequencer").css("top",currentSequence*70);
+
+	$("body").css("background-color",colors[currentSequence]);
+	$(".title > h2").text(titleArray[currentSequence]);
+
 
 	if(leftArray[currentSequence])
 		playSound(bufferList[0],0);
