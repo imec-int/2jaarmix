@@ -15,7 +15,6 @@ function setClickHandlers () {
 			$(".title-container > span").text(titleArray2[0]);
 			// interval = setInterval("sequenceTick();", 400);
 			hasStarted = true;
-			initBackSound();
 		}
 
 		return false;
@@ -34,7 +33,7 @@ function setClickHandlers () {
 			$(".title-container > span").css("font-size","10vw");
 			$(".title-container > span").text(titleArray2[0]);
 			hasStarted = true;
-			initBackSound();
+
 		}
 
 		return false;
@@ -77,6 +76,7 @@ var eighthNoteTime = (60 / tempo) / 2;
 var bufferList;
 var sources = [];
 var gains = [];
+var backPLaying = false;
 
 window.onload = init;
 
@@ -92,7 +92,7 @@ function init(){
 	//fastclick for mobile devices:
 	FastClick.attach(document.body);
 	$("#flow-sequencer").css("height",$(".sequence-left-group > .sequence").height()  +30);
-	interval = setInterval("sequenceTick();", 400);
+	interval = setInterval("sequenceTick();", 468.75);
 }
 
 function sequenceTick(){
@@ -100,6 +100,11 @@ function sequenceTick(){
 		currentSequence = 0;
 		$("#flow-sequencer").css("height",$(".sequence-left-group > .sequence").height()  +30);
 		if(hasStarted){
+			if(!backPLaying){
+				initBackSound();
+				backPLaying = true;
+			}
+
 			altSequence++;
 			if(altSequence==4)
 				altSequence=0
