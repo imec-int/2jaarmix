@@ -8,6 +8,8 @@ function setClickHandlers () {
 		updateLeftArray();
 
 		if(!hasStarted){
+			$(".title > h2").text(titleArray[currentSequence]);
+			$(".title").css("background-image", "url(/img/gear.png)");
 			playSound(bufferList[0],0);
 			interval = setInterval("sequenceTick();", 400);
 			hasStarted = true;
@@ -23,6 +25,8 @@ function setClickHandlers () {
 		updateRightArray();
 
 		if(!hasStarted){
+			$(".title > h2").text(titleArray[currentSequence]);
+			$(".title").css("background-image", "url(/img/gear.png)");
 			playSound(bufferList[0],0);
 			interval = setInterval("sequenceTick();", 400);
 			hasStarted = true;

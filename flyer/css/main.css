@@ -172,9 +172,9 @@ html,body{
 
 body{
     background-color: red;
-background-image: url("/img/cdd.png");
+    background-image: url("/img/960pxbackground.png");
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: top center;
     background-size: cover;
 
 }
@@ -186,7 +186,7 @@ background-image: url("/img/cdd.png");
 }
 
 .main{
-    margin-top: 10%;
+    /*margin-top: 10%;*/
 }
 
 
@@ -245,9 +245,9 @@ background-image: url("/img/cdd.png");
 }
 
 .title{
-    margin-left: 30px;
+
     margin-top: 30px;
-    background-image: url("/img/gear.png");
+    background-image: url("/img/arrow.png");
     background-repeat: no-repeat;
     background-position: right center;
     background-size: contain;
@@ -257,7 +257,7 @@ background-image: url("/img/cdd.png");
 .title h2{
     padding-top: 40px;
     color: #D18461;
-    font-size: 100px;
+    font-size: 20vw;
 
 }
 
