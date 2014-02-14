@@ -201,6 +201,7 @@ body{
 .sequence-container{
     height: 280px;
     margin-bottom: 20px;
+    /*margin-top: 40px;*/
 }
 
 #flow-sequencer{
@@ -262,6 +263,8 @@ body{
 }
 
 #console{
+    position: absolute;
+    bottom: 0px;
     visibility: hidden;
     height: 100px;
     width: 100%;

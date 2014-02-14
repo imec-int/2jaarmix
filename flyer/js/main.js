@@ -8,10 +8,10 @@ function setClickHandlers () {
 		updateLeftArray();
 
 		if(!hasStarted){
-			$(".title > h2").text(titleArray[currentSequence]);
+			// $(".title > h2").text(titleArray[currentSequence]);
 			$(".title").css("background-image", "url(/img/gear.png)");
 			playSound(bufferList[0],0);
-			interval = setInterval("sequenceTick();", 400);
+			// interval = setInterval("sequenceTick();", 400);
 			hasStarted = true;
 		}
 
@@ -25,10 +25,10 @@ function setClickHandlers () {
 		updateRightArray();
 
 		if(!hasStarted){
-			$(".title > h2").text(titleArray[currentSequence]);
+			// $(".title > h2").text(titleArray[currentSequence]);
 			$(".title").css("background-image", "url(/img/gear.png)");
 			playSound(bufferList[0],0);
-			interval = setInterval("sequenceTick();", 400);
+
 			hasStarted = true;
 		}
 
@@ -56,7 +56,8 @@ function updateRightArray(){
 	})
 }
 var colors = ["#8DBDC7","#FFE37F","#F0C271","#E3A368","#D18461"];
-var titleArray = ["HACK","THIS","PRESS","HERE"];
+var titleArray1 = ["LET'S","MAKE","SOME","MUSIC"];
+var titleArray2 = ["HACK","THIS","PRESS","HERE"];
 var hasStarted = false;
 var interval = 0;
 var currentSequence = 0;
@@ -68,6 +69,8 @@ var startTime;
 var tempo = 80; // BPM (beats per minute)
 var eighthNoteTime = (60 / tempo) / 2;
 var bufferList;
+var sources = [];
+var gains = [];
 
 window.onload = init;
 
@@ -82,6 +85,7 @@ function init(){
 
 	//fastclick for mobile devices:
 	FastClick.attach(document.body);
+	interval = setInterval("sequenceTick();", 400);
 }
 
 function sequenceTick(){
@@ -95,13 +99,17 @@ function sequenceTick(){
 	$("#flow-sequencer").css("top",currentSequence*70);
 
 	$("body").css("background-color",colors[currentSequence]);
-	$(".title > h2").text(titleArray[currentSequence]);
+	if(!hasStarted){
+		$(".title > h2").text(titleArray1[currentSequence]);
+	}else{
+		$(".title > h2").text(titleArray2[currentSequence]);
+	}
 
 
 	if(leftArray[currentSequence])
-		playSound(bufferList[0],0);
+		playSound(bufferList[0],startTime);
 	if(rightArray[currentSequence])
-		playSound(bufferList[1],0);
+		playSound(bufferList[1],startTime);
 
 	// console.log(leftArray);
 }
@@ -114,14 +122,14 @@ function initSound() {
   bufferLoader = new BufferLoader(
     context,
     [
-      '/sounds/snare.wav',
+      '/sounds/hihat.wav',
       '/sounds/kick.wav',
     ],
     finishedLoading
     );
 
   bufferLoader.load();
-  startTime = context.currentTime + 0.100;
+  startTime = context.currentTime + 0.0100;
 }
 
 function finishedLoading(_bufferList) {
