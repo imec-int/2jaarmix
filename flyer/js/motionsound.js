@@ -1,5 +1,7 @@
 var Motionsound = function (options){
 
+	var zeroOffset = 0.04;
+
 	var init = function (){
 		console.log("init motionsensors");
 		if (window.DeviceOrientationEvent) {
@@ -31,16 +33,22 @@ var Motionsound = function (options){
 	};
 
 	var sendVolumeRight = function (value) {
+		value = Math.max(0, value-zeroOffset);
+		value = value/(1-zeroOffset);
+
 		if(options.onLeftVolumeChanged) options.onLeftVolumeChanged( toLogarithmicScale(value) );
 	};
 
 
 	var sendVolumeLeft = function (value) {
+		value = Math.max(0, value-zeroOffset);
+		value = value/(1-zeroOffset);
+
 		if(options.onRightVolumeChanged) options.onRightVolumeChanged( toLogarithmicScale(value) );
 	};
 
 	function toLogarithmicScale(x) {
-	     return x;
+	     return Math.sin(x * Math.PI / 2);
 	};
 
 	return {
