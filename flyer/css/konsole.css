@@ -1,5 +1,8 @@
 .konsole{
-	visibility: hidden;
+	display: none;
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
     width: 100%;
     height: 100px;
     background-color: black;

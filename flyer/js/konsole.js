@@ -44,5 +44,3 @@ window.konsole;
 $(function () {
 	window.konsole = new Konsole({el:'.konsole', limit: 10});
 })
-
-// is dit een commit waard?
