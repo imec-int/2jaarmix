@@ -172,7 +172,7 @@ function initSound() {
     [
       '/sounds/hihat.mp3',
       '/sounds/kick.mp3',
-      '/sounds/back2.mp3',
+      '/sounds/bassline.wav',
       '/sounds/back1.mp3',
     ],
     finishedLoading
