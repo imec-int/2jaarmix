@@ -105,7 +105,8 @@ var sources = [];
 var gains = [];
 var backPLaying = false;
 var activeBlocks = 0;
-var gainNode;
+var gainNode1;
+var gainNode2;
 
 window.onload = init;
 
@@ -130,7 +131,8 @@ function sequenceTick(){
 		$("#flow-sequencer").css("height",$(".sequence-left-group > .sequence").height()  +30);
 		if(hasStarted){
 			if(!backPLaying){
-				initBackSound();
+				initBackSound1();
+				initBackSound2();
 				backPLaying = true;
 			}
 
@@ -173,7 +175,7 @@ function initSound() {
       '/sounds/cdd_snare.mp3',
       '/sounds/cdd_kick.mp3',
       '/sounds/cdd_bassline.wav',
-      '/sounds/back1.mp3',
+      '/sounds/cdd_sequence2.wav',
     ],
     finishedLoading
     );
@@ -182,16 +184,28 @@ function initSound() {
   startTime = context.currentTime + 0.0100;
 }
 
-function initBackSound(){
+function initBackSound1(){
 	var source = context.createBufferSource();
 	source.buffer = bufferList[2];
 	source.loop = true;
-	gainNode = context.createGainNode();
-	source.connect(gainNode);
-	gainNode.connect(context.destination);
+	gainNode1 = context.createGainNode();
+	source.connect(gainNode1);
+	gainNode1.connect(context.destination);
 	if (!source.start)
 	  source.start = source.noteOn;
 	source.start(startTime);
+}
+
+function initBackSound2(){
+	var source = context.createBufferSource();
+	source.buffer = bufferList[3];
+	source.loop = true;
+	gainNode2 = context.createGainNode();
+	source.connect(gainNode2);
+	gainNode2.connect(context.destination);
+	if (!source.start)
+	  source.start = source.noteOn;
+	source.start(startTime+0.24);
 }
 
 function finishedLoading(_bufferList) {
@@ -229,8 +243,8 @@ function leftVolumeChanged(value){
 	// value is een waarde tussen 0 en 1
 	// konsole.log( 'left volume: ' + Math.round(value*100)/100 );
 
-	if(gainNode){
-		gainNode.gain.value = value;
+	if(gainNode2){
+		gainNode2.gain.value = value;
 	}
 }
 
@@ -239,8 +253,8 @@ function rightVolumeChanged(value){
 	// value is een waarde tussen 0 en 1
 	// konsole.log( 'right volume: ' + Math.round(value*100)/100 );
 
-	if(gainNode){
-		gainNode.gain.value = value;
+	if(gainNode2){
+		gainNode2.gain.value = value;
 	}
 }
 
