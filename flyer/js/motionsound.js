@@ -1,6 +1,8 @@
 var Motionsound = function (options){
 
 	var zeroOffset = 0.04;
+	var minAngle = -30; // limit to -30 and 30 (don't go further than -90 and 90, as that's the Android limit)
+	var maxAngle = 30;
 
 	var init = function (){
 		console.log("init motionsensors");
@@ -17,18 +19,17 @@ var Motionsound = function (options){
 
 		var degrees = event.gamma;
 
-		// limit to -90 and 90 (so it's the same on Android and iOS)
-		if(degrees > 90)
-			degrees = 90;
+		if(degrees > maxAngle)
+			degrees = maxAngle;
 
-		if(degrees < -90){
-			degrees = -90;
+		if(degrees < minAngle){
+			degrees = minAngle;
 		}
 
-		if( -90 < degrees && degrees < 0){
-			sendVolumeLeft( Math.abs(degrees)/90 );
-		}else if( 0 < degrees && degrees < 90){
-			sendVolumeLeft( Math.abs(degrees)/90 );
+		if( minAngle < degrees && degrees < 0){
+			sendVolumeLeft( Math.abs(degrees/minAngle) );
+		}else if( 0 < degrees && degrees < maxAngle){
+			sendVolumeLeft( Math.abs(degrees/maxAngle) );
 		}
 	};
 
