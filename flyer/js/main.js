@@ -27,7 +27,7 @@ function init(){
 	initClickHandlers();
 
 	$("#flow-sequencer").css("height",$(".sequence-left-group > .sequence").height()  +30);
-	interval = setInterval("sequenceTick();", 468.75);
+	interval = setInterval("sequenceTick();", 458);
 
 	//fastclick for mobile devices:
 	FastClick.attach(document.body);
@@ -166,11 +166,11 @@ function initSound() {
   bufferLoader = new BufferLoader(
     context,
     [
-      '/sounds/cdd_snare.mp3',
-      '/sounds/cdd_hihat.mp3',
-      '/sounds/cdd_kick.mp3',
-      '/sounds/cdd_bassline.wav',
-      '/sounds/cdd_sequence2.wav',
+      '/sounds/original/Snare.wav',
+      '/sounds/original/Hihat.wav',
+      '/sounds/original/Kick.wav',
+      '/sounds/original/Bassline.wav',
+      '/sounds/original/sequencer2.wav',
     ],
     finishedLoading
     );
