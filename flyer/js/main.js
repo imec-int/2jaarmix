@@ -132,7 +132,7 @@ function sequenceTick(){
 	}else{
 		currentSequence ++;
 	}
-	// $("body").css("background-color","rgb("+(Math.floor(Math.random()*128))+","+(Math.floor(Math.random()*64))+","+(Math.floor(Math.random()*128)+128)+")");
+	$("body").css("background-color","rgb("+(Math.floor(Math.random()*128))+","+(Math.floor(Math.random()*64))+","+(Math.floor(Math.random()*128)+128)+")");
 
 
 	var top = parseInt($("#flow-sequencer").css("top"), 10);
@@ -142,11 +142,9 @@ function sequenceTick(){
 
 	if(!hasStarted){
 		$(".title-container > span").text(titleArray1[currentSequence]);
-		$("body").css("background-color","rgb("+(Math.floor(Math.random()*128))+","+(Math.floor(Math.random()*64))+","+(Math.floor(Math.random()*128)+128)+")");
 
 	}else{
 		$(".title-container > span").text(titleArray2[currentSequence]);
-		// $("body").css("background-color","rgb("+(Math.floor(Math.random()*128))+","+(Math.floor(Math.random()*64))+","+(Math.floor(Math.random()*128)+128)+")");
 	}
 	// console.log(leftArray);
 	// console.log(middleArray);
