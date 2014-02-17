@@ -170,9 +170,9 @@ function initSound() {
   bufferLoader = new BufferLoader(
     context,
     [
-      '/sounds/hihat.mp3',
-      '/sounds/kick.mp3',
-      '/sounds/bassline.wav',
+      '/sounds/cdd_snare.mp3',
+      '/sounds/cdd_kick.mp3',
+      '/sounds/cdd_bassline.wav',
       '/sounds/back1.mp3',
     ],
     finishedLoading
