@@ -9,6 +9,7 @@ var altSequence = 0;
 var context;
 var bufferLoader;
 var leftArray = [false,false,false,false];
+var middleArray = [false,false,false,false];
 var rightArray = [false,false,false,false];
 var startTime;
 var tempo = 80; // BPM (beats per minute)
@@ -17,7 +18,6 @@ var bufferList;
 var sources = [];
 var gains = [];
 var backPLaying = false;
-var activeBlocks = 0;
 var gainNode1;
 var gainNode2;
 
@@ -34,7 +34,39 @@ function init(){
 }
 
 function initClickHandlers () {
-	$(".sequence-left-group > .sequence").click(function(event){
+
+	$(".sequence-group > .sequence").click(function(event){
+		event.preventDefault();
+		if($(this).hasClass("sequence-left")||$(this).hasClass("sequence-left-off")){
+			//left
+			$(this).toggleClass("sequence-left");
+			$(this).toggleClass("sequence-left-off");
+		}else if($(this).hasClass("sequence-middle")||$(this).hasClass("sequence-middle-off")){
+			//MIDDLE
+			$(this).toggleClass("sequence-middle");
+			$(this).toggleClass("sequence-middle-off");
+		}else if($(this).hasClass("sequence-right")||$(this).hasClass("sequence-right-off")){
+			//RIGHT
+			$(this).toggleClass("sequence-right");
+			$(this).toggleClass("sequence-right-off");
+		}
+		updateSequenceArrays();
+
+		// CHECK for start
+		if(!hasStarted){
+			// $(".title > h2").text(titleArray[currentSequence]);
+			$(".title").css("background-image", "url(/img/gear.png)");
+			playSound(bufferList[0],0);
+			$(".title-container > span").css("font-size","10vw");
+			$(".title-container > span").text(titleArray2[0]);
+			// interval = setInterval("sequenceTick();", 400);
+			hasStarted = true;
+		}
+
+		return false;
+	});
+
+	/*$(".sequence-left-group > .sequence").click(function(event){
 		event.preventDefault();
 		$(this).toggleClass("sequence-left");
 		$(this).toggleClass("sequence-left-off");
@@ -70,7 +102,7 @@ function initClickHandlers () {
 		}
 
 		return false;
-	});
+	});*/
 
 	$(".title").click(function(event){
 		event.preventDefault();
@@ -79,7 +111,7 @@ function initClickHandlers () {
 		return false;
 	});
 
-	$("#helmet-left").click(function(event){
+	/*$("#helmet-left").click(function(event){
 		if(hasStarted){
 			activeBlocks--;
 			if(activeBlocks<0)
@@ -97,7 +129,7 @@ function initClickHandlers () {
 			// console.log("helmet right");
 			$(".sequence-container").css("left", activeBlocks*-50 +"%");
 		}
-	});
+	});*/
 }
 
 function moveDiv (div, activeBlock) {
@@ -108,9 +140,20 @@ function moveDiv (div, activeBlock) {
 	});
 }
 
-function updateLeftArray(){
+function updateSequenceArrays(){
 	$(".sequence-left-group > .sequence").each(function(i,el){
 		leftArray[i] = $(el).hasClass("sequence-left");
+	});
+	$(".sequence-middle-group > .sequence").each(function(i,el){
+		middleArray[i] = $(el).hasClass("sequence-middle");
+	});
+	$(".sequence-right-group > .sequence").each(function(i,el){
+		rightArray[i] = $(el).hasClass("sequence-right");
+	});
+}
+function updateMiddleArray(){
+	$(".sequence-middle-group > .sequence").each(function(i,el){
+		middleArray[i] = $(el).hasClass("sequence-middle");
 	})
 }
 function updateRightArray(){
@@ -129,11 +172,6 @@ function sequenceTick(){
 				initBackSound2();
 				backPLaying = true;
 			}
-
-			// altSequence++;
-			// if(altSequence==4)
-			// 	altSequence=0
-			// $(".title-container > span").text(titleArray2[altSequence]);
 		}
 
 
@@ -168,6 +206,7 @@ function initSound() {
     [
       '/sounds/cdd_snare.mp3',
       '/sounds/cdd_kick.mp3',
+      // '/sounds/cdd_hihat.mp3',
       '/sounds/cdd_bassline.wav',
       '/sounds/cdd_sequence2.wav',
     ],
