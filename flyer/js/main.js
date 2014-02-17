@@ -150,7 +150,7 @@ function sequenceTick(){
 	// console.log(middleArray);
 	// console.log(rightArray);
 
-	if(leftArray[currentSequence])
+	if(leftArray[(currentSequence + 1) % 4])
 		playSound(bufferList[0],startTime);
 	if(middleArray[currentSequence])
 		playSound(bufferList[1],startTime);
