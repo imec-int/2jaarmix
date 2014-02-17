@@ -104,7 +104,11 @@ var bufferList;
 var sources = [];
 var gains = [];
 var backPLaying = false;
+<<<<<<< HEAD
 var activeBlocks = 0;
+=======
+var gainNode;
+>>>>>>> b319b6f21ef2e659fc91c57afb8181300a4f2860
 
 window.onload = init;
 
