@@ -59,8 +59,8 @@ function setClickHandlers () {
 	$("#helmet-right").click(function(event){
 		if(hasStarted){
 			activeBlocks++;
-			if(activeBlocks==6)
-				activeBlocks = 5;
+			if(activeBlocks==4)
+				activeBlocks = 3;
 			// console.log("helmet right");
 			$(".sequence-container").css("left", activeBlocks*-50 +"%");
 		}
