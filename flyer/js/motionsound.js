@@ -1,7 +1,9 @@
 var Motionsound = function (options){
 
+	var zeroOffset = 0.04;
+
 	var init = function (){
-		konsole.log("init motionsensors");
+		console.log("init motionsensors");
 		if (window.DeviceOrientationEvent) {
 			// Listen for the deviceorientation event and handle the raw data
 			window.addEventListener('deviceorientation', onDeviceorientation, false);
@@ -9,9 +11,9 @@ var Motionsound = function (options){
 	};
 
 	var onDeviceorientation = function (event) {
-		// konsole.log( Math.round(event.gamma)+" | "+ Math.round(event.beta)+" | "+ Math.round(event.alpha));
+		// console.log( Math.round(event.gamma)+" | "+ Math.round(event.beta)+" | "+ Math.round(event.alpha));
 
-		// konsole.log( Math.round(event.gamma) );
+		// console.log( Math.round(event.gamma) );
 
 		var degrees = event.gamma;
 
@@ -24,36 +26,32 @@ var Motionsound = function (options){
 		}
 
 		if( -90 < degrees && degrees < 0){
-			if(options.onLeftVolumeChanged) options.onLeftVolumeChanged( Math.abs(degrees)/90 );
+			sendVolumeLeft( Math.abs(degrees)/90 );
 		}else if( 0 < degrees && degrees < 90){
-			if(options.onRightVolumeChanged) options.onRightVolumeChanged( Math.abs(degrees)/90 );
+			sendVolumeLeft( Math.abs(degrees)/90 );
 		}
+	};
+
+	var sendVolumeRight = function (value) {
+		value = Math.max(0, value-zeroOffset);
+		value = value/(1-zeroOffset);
+
+		if(options.onLeftVolumeChanged) options.onLeftVolumeChanged( toLogarithmicScale(value) );
+	};
+
+
+	var sendVolumeLeft = function (value) {
+		value = Math.max(0, value-zeroOffset);
+		value = value/(1-zeroOffset);
+
+		if(options.onRightVolumeChanged) options.onRightVolumeChanged( toLogarithmicScale(value) );
+	};
+
+	function toLogarithmicScale(x) {
+	     return Math.sin(x * Math.PI / 2);
 	};
 
 	return {
 		init: init
 	};
 };
-
-
-// knippen en plakken in de main.js en gebruiken waar nodig:
-
-$(function(){
-	var motionsound = new Motionsound({
-		onLeftVolumeChanged: leftVolumeChanged,
-		onRightVolumeChanged: rightVolumeChanged
-	});
-	motionsound.init();
-});
-
-
-function leftVolumeChanged(value){
-	// value is een waarde tussen 0 en 1
-	konsole.log( 'left volume: ' + Math.round(value*100)/100 );
-}
-
-
-function rightVolumeChanged(value){
-	// value is een waarde tussen 0 en 1
-	konsole.log( 'right volume: ' + Math.round(value*100)/100 );
-}
