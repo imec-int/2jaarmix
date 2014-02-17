@@ -66,44 +66,6 @@ function initClickHandlers () {
 		return false;
 	});
 
-	/*$(".sequence-left-group > .sequence").click(function(event){
-		event.preventDefault();
-		$(this).toggleClass("sequence-left");
-		$(this).toggleClass("sequence-left-off");
-		updateLeftArray();
-
-		if(!hasStarted){
-			// $(".title > h2").text(titleArray[currentSequence]);
-			$(".title").css("background-image", "url(/img/gear.png)");
-			playSound(bufferList[0],0);
-			$(".title-container > span").css("font-size","10vw");
-			$(".title-container > span").text(titleArray2[0]);
-			// interval = setInterval("sequenceTick();", 400);
-			hasStarted = true;
-		}
-
-		return false;
-	});
-
-	$(".sequence-right-group > .sequence").click(function(event){
-		event.preventDefault();
-		$(this).toggleClass("sequence-right");
-		$(this).toggleClass("sequence-right-off");
-		updateRightArray();
-
-		if(!hasStarted){
-			// $(".title > h2").text(titleArray[currentSequence]);
-			$(".title").css("background-image", "url(/img/gear.png)");
-			playSound(bufferList[0],0);
-			$(".title-container > span").css("font-size","10vw");
-			$(".title-container > span").text(titleArray2[0]);
-			hasStarted = true;
-
-		}
-
-		return false;
-	});*/
-
 	$(".title").click(function(event){
 		event.preventDefault();
 		$(".title").hide();
@@ -130,14 +92,6 @@ function initClickHandlers () {
 			$(".sequence-container").css("left", activeBlocks*-50 +"%");
 		}
 	});*/
-}
-
-function moveDiv (div, activeBlock) {
-	div.css({
-		        'transform': 'translate3d('+x+', '+y+', 0) scale3d(1, 1, 1)',
-		   '-moz-transform': 'translate3d('+x+', '+y+', 0) scale3d(1, 1, 1)',
-		'-webkit-transform': 'translate3d('+x+', '+y+', 0) scale3d(1, 1, 1)'
-	});
 }
 
 function updateSequenceArrays(){
@@ -188,12 +142,16 @@ function sequenceTick(){
 	}else{
 		$(".title-container > span").text(titleArray2[currentSequence]);
 	}
-
+	// console.log(leftArray);
+	// console.log(middleArray);
+	// console.log(rightArray);
 
 	if(leftArray[currentSequence])
 		playSound(bufferList[0],startTime);
-	if(rightArray[currentSequence])
+	if(middleArray[currentSequence])
 		playSound(bufferList[1],startTime);
+	if(rightArray[currentSequence])
+		playSound(bufferList[2],startTime);
 }
 
 function initSound() {
@@ -205,8 +163,8 @@ function initSound() {
     context,
     [
       '/sounds/cdd_snare.mp3',
+      '/sounds/cdd_hihat.mp3',
       '/sounds/cdd_kick.mp3',
-      // '/sounds/cdd_hihat.mp3',
       '/sounds/cdd_bassline.wav',
       '/sounds/cdd_sequence2.wav',
     ],
@@ -219,7 +177,7 @@ function initSound() {
 
 function initBackSound1(){
 	var source = context.createBufferSource();
-	source.buffer = bufferList[2];
+	source.buffer = bufferList[3];
 	source.loop = true;
 	gainNode1 = context.createGainNode();
 	source.connect(gainNode1);
@@ -231,7 +189,7 @@ function initBackSound1(){
 
 function initBackSound2(){
 	var source = context.createBufferSource();
-	source.buffer = bufferList[3];
+	source.buffer = bufferList[4];
 	source.loop = true;
 	gainNode2 = context.createGainNode();
 	source.connect(gainNode2);
