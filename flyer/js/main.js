@@ -1,6 +1,39 @@
-function setClickHandlers () {
+// var colors = ["#8DBDC7","#FFE37F","#F0C271","#E3A368","#D18461"];
+var colors = ["#0A87BF","#03657F","#00F2FF","#011940","#0781E5", "#BF09A1","#13207F","#E098FF","#120040","#A841E5"];
+var titleArray1 = ["LET'S","MAKE","SOME","MUSIC"];
+var titleArray2 = ["MEDIA HACKATHON","Zat. 15/03","AB BRUSSEL","Inschrijven!"];
+var hasStarted = false;
+var interval = 0;
+var currentSequence = 0;
+var altSequence = 0;
+var context;
+var bufferLoader;
+var leftArray = [false,false,false,false];
+var rightArray = [false,false,false,false];
+var startTime;
+var tempo = 80; // BPM (beats per minute)
+var eighthNoteTime = (60 / tempo) / 2;
+var bufferList;
+var sources = [];
+var gains = [];
+var backPLaying = false;
+var activeBlocks = 0;
+var gainNode1;
+var gainNode2;
 
+function init(){
+	initSound();
+	initMotionsound();
+	initClickHandlers();
 
+	$("#flow-sequencer").css("height",$(".sequence-left-group > .sequence").height()  +30);
+	interval = setInterval("sequenceTick();", 468.75);
+
+	//fastclick for mobile devices:
+	FastClick.attach(document.body);
+}
+
+function initClickHandlers () {
 	$(".sequence-left-group > .sequence").click(function(event){
 		event.preventDefault();
 		$(this).toggleClass("sequence-left");
@@ -84,45 +117,6 @@ function updateRightArray(){
 	$(".sequence-right-group > .sequence").each(function(i,el){
 		rightArray[i] = $(el).hasClass("sequence-right");
 	})
-}
-// var colors = ["#8DBDC7","#FFE37F","#F0C271","#E3A368","#D18461"];
-var colors = ["#0A87BF","#03657F","#00F2FF","#011940","#0781E5", "#BF09A1","#13207F","#E098FF","#120040","#A841E5"];
-var titleArray1 = ["LET'S","MAKE","SOME","MUSIC"];
-var titleArray2 = ["MEDIA HACKATHON","Zat. 15/03","AB BRUSSEL","Inschrijven!"];
-var hasStarted = false;
-var interval = 0;
-var currentSequence = 0;
-var altSequence = 0;
-var context;
-var bufferLoader;
-var leftArray = [false,false,false,false];
-var rightArray = [false,false,false,false];
-var startTime;
-var tempo = 80; // BPM (beats per minute)
-var eighthNoteTime = (60 / tempo) / 2;
-var bufferList;
-var sources = [];
-var gains = [];
-var backPLaying = false;
-var activeBlocks = 0;
-var gainNode1;
-var gainNode2;
-
-window.onload = init;
-
-function init(){
-	//start timer
-	// interval = setInterval("sequenceTick();", 200);
-
-	//init sound
-	initSound();
-
-	setClickHandlers();
-
-	//fastclick for mobile devices:
-	FastClick.attach(document.body);
-	$("#flow-sequencer").css("height",$(".sequence-left-group > .sequence").height()  +30);
-	interval = setInterval("sequenceTick();", 468.75);
 }
 
 function sequenceTick(){
@@ -212,10 +206,6 @@ function finishedLoading(_bufferList) {
 	bufferList = _bufferList;
 }
 
-// var kick = BUFFERS.kick;
-// var snare = BUFFERS.snare;
-// var hihat = BUFFERS.hihat;
-
 function playSound(buffer, time) {
 	var source = context.createBufferSource();
 	source.buffer = buffer;
@@ -225,19 +215,13 @@ function playSound(buffer, time) {
 	source.start(time);
 }
 
-
-// gain afhangen van motion:
-
-// knippen en plakken in de main.js en gebruiken waar nodig:
-
-$(function(){
+function initMotionsound () {
 	var motionsound = new Motionsound({
 		onLeftVolumeChanged: leftVolumeChanged,
 		onRightVolumeChanged: rightVolumeChanged
 	});
 	motionsound.init();
-});
-
+}
 
 function leftVolumeChanged(value){
 	// value is een waarde tussen 0 en 1
@@ -248,7 +232,6 @@ function leftVolumeChanged(value){
 	}
 }
 
-
 function rightVolumeChanged(value){
 	// value is een waarde tussen 0 en 1
 	// konsole.log( 'right volume: ' + Math.round(value*100)/100 );
@@ -258,5 +241,5 @@ function rightVolumeChanged(value){
 	}
 }
 
-
+window.onload = init;
 
