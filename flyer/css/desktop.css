@@ -2,6 +2,10 @@ iframe{
 	display: none;
 }
 
+.desktop_bg{
+	display: none;
+}
+
 
 /* Desktop ----------- */
 @media only screen and (min-width:769px) {
@@ -19,5 +23,9 @@ iframe{
 	iframe{
 		border: 20px solid black;
 		display: inline;
+	}
+
+	.desktop_bg{
+		display: block;
 	}
 }
