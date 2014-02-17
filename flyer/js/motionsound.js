@@ -26,14 +26,16 @@ var Motionsound = function (options){
 			degrees = minAngle;
 		}
 
+		// konsole.log(degrees);
+
 		if( minAngle < degrees && degrees < 0){
 			sendVolumeLeft( Math.abs(degrees/minAngle) );
 		}else if( 0 < degrees && degrees < maxAngle){
-			sendVolumeLeft( Math.abs(degrees/maxAngle) );
+			sendVolumeRight( Math.abs(degrees/maxAngle) );
 		}
 	};
 
-	var sendVolumeRight = function (value) {
+	var sendVolumeLeft = function (value) {
 		value = Math.max(0, value-zeroOffset);
 		value = value/(1-zeroOffset);
 
@@ -41,7 +43,7 @@ var Motionsound = function (options){
 	};
 
 
-	var sendVolumeLeft = function (value) {
+	var sendVolumeRight = function (value) {
 		value = Math.max(0, value-zeroOffset);
 		value = value/(1-zeroOffset);
 
