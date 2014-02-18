@@ -159,8 +159,6 @@ function finishedLoading(_bufferList) {
 }
 
 function loadingProgress (percentage) {
-	console.log(percentage);
-
 	$("#loadingbar").width(percentage*100 + '%');
 }
 
