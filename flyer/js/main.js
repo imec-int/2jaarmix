@@ -5,18 +5,12 @@ var titleArray2 = ["MEDIA HACKATHON","Zat. 15/03","AB BRUSSEL","-> Inschrijven! 
 var hasStarted = false;
 var interval = 0;
 var currentSequence = 0;
-var altSequence = 0;
 var context;
-var bufferLoader;
 var leftArray = [false,false,false,false];
 var middleArray = [false,false,false,false];
 var rightArray = [false,false,false,false];
-var startTime;
-var tempo = 80; // BPM (beats per minute)
-var eighthNoteTime = (60 / tempo) / 2;
+var startTime = 0;
 var bufferList;
-var sources = [];
-var gains = [];
 var backPLaying = false;
 var gainNodeLeft;
 var gainNodeRight;
@@ -164,7 +158,7 @@ function initSound() {
   window.AudioContext = window.AudioContext || window.webkitAudioContext;
   context = new AudioContext();
 
-  bufferLoader = new BufferLoader(
+  var bufferLoader = new BufferLoader(
     context,
     [
       '/sounds/original/Snare.wav',
@@ -177,7 +171,7 @@ function initSound() {
     finishedLoading
     );
 
-  bufferLoader.load();
+  var bufferLoader.load();
   startTime = context.currentTime + 0.0100;
 }
 
