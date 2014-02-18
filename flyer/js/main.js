@@ -12,8 +12,7 @@ var rightArray = [false,false,false,false];
 var startTime = 0;
 var bufferList;
 var backPLaying = false;
-var gainNodeLeft;
-var gainNodeRight;
+var gainNodeSequence;
 
 function init(){
 	initSound();
@@ -117,8 +116,7 @@ function sequenceTick(){
 		if(hasStarted){
 			if(!backPLaying){
 				initBackSoundBassline();
-				initBackSoundLeft();
-				initBackSoundRight();
+				initBackSoundSequence();
 				backPLaying = true;
 			}
 		}
@@ -165,13 +163,12 @@ function initSound() {
       '/sounds/original/Hihat.wav',
       '/sounds/original/Kick.wav',
       '/sounds/original/Bassline.wav',
-      '/sounds/original/sequencer.wav',
       '/sounds/original/sequencer2.wav',
     ],
     finishedLoading
     );
 
-  var bufferLoader.load();
+  bufferLoader.load();
   startTime = context.currentTime + 0.0100;
 }
 
@@ -185,28 +182,18 @@ function initBackSoundBassline(){
 	source.start(startTime);
 }
 
-function initBackSoundLeft(){
+function initBackSoundSequence(){
 	var source = context.createBufferSource();
 	source.buffer = bufferList[4];
 	source.loop = true;
-	gainNodeLeft = context.createGainNode();
-	source.connect(gainNodeLeft);
-	gainNodeLeft.connect(context.destination);
+	gainNodeSequence = context.createGainNode();
+	source.connect(gainNodeSequence);
+	gainNodeSequence.connect(context.destination);
 	if (!source.start)
 	  source.start = source.noteOn;
 	source.start(startTime);
 }
-function initBackSoundRight(){
-	var source = context.createBufferSource();
-	source.buffer = bufferList[5];
-	source.loop = true;
-	gainNodeRight = context.createGainNode();
-	source.connect(gainNodeRight);
-	gainNodeRight.connect(context.destination);
-	if (!source.start)
-	  source.start = source.noteOn;
-	source.start(startTime);
-}
+
 
 function finishedLoading(_bufferList) {
 	bufferList = _bufferList;
@@ -233,8 +220,8 @@ function leftVolumeChanged(value){
 	// value is een waarde tussen 0 en 1
 	// konsole.log( 'left volume: ' + Math.round(value*100)/100 );
 
-	if(gainNodeLeft){
-		gainNodeLeft.gain.value = value;
+	if(gainNodeSequence){
+		gainNodeSequence.gain.value = value;
 	}
 }
 
@@ -242,8 +229,8 @@ function rightVolumeChanged(value){
 	// value is een waarde tussen 0 en 1
 	// konsole.log( 'right volume: ' + Math.round(value*100)/100 );
 
-	if(gainNodeRight){
-		gainNodeRight.gain.value = value;
+	if(gainNodeSequence){
+		gainNodeSequence.gain.value = value;
 	}
 }
 
