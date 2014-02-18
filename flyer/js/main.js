@@ -135,9 +135,9 @@ function initSound() {
 	var bufferLoader = new BufferLoader(
 		context,
 		[
-			'/sounds/original/Snare.wav',
-			'/sounds/original/Hihat.wav',
-			'/sounds/original/Kick.wav',
+			'/sounds/original/Snare.mp3',
+			'/sounds/original/Hihat.mp3',
+			'/sounds/original/Kick.mp3',
 			'/sounds/original/Bassline.wav',
 			'/sounds/original/sequencer2.wav',
 		],
