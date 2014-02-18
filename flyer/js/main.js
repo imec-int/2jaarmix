@@ -15,12 +15,11 @@ var backPLaying = false;
 var gainNodeSequence;
 
 function init(){
+	$("#flow-sequencer").css("height",$(".sequence-left-group > .sequence").height() + 30);
+
 	initSound();
 	initMotionsound();
 	initClickHandlers();
-
-	$("#flow-sequencer").css("height",$(".sequence-left-group > .sequence").height()  +30);
-	interval = setInterval("sequenceTick();", 458);
 
 	//fastclick for mobile devices:
 	FastClick.attach(document.body);
@@ -65,26 +64,6 @@ function initClickHandlers () {
 
 		return false;
 	});
-
-	/*$("#helmet-left").click(function(event){
-		if(hasStarted){
-			activeBlocks--;
-			if(activeBlocks<0)
-				activeBlocks = 0;
-			// console.log("helmet left");
-			$(".sequence-container").css("left", activeBlocks*-50 +"%");
-		}
-	});
-
-	$("#helmet-right").click(function(event){
-		if(hasStarted){
-			activeBlocks++;
-			if(activeBlocks==4)
-				activeBlocks = 3;
-			// console.log("helmet right");
-			$(".sequence-container").css("left", activeBlocks*-50 +"%");
-		}
-	});*/
 }
 
 function updateSequenceArrays(){
@@ -139,9 +118,6 @@ function sequenceTick(){
 	}else{
 		$(".title-container > span").text(titleArray2[currentSequence]);
 	}
-	// console.log(leftArray);
-	// console.log(middleArray);
-	// console.log(rightArray);
 
 	if(leftArray[(currentSequence + 1) % 4])
 		playSound(bufferList[0],startTime);
@@ -152,24 +128,24 @@ function sequenceTick(){
 }
 
 function initSound() {
-  // Fix up prefixing
-  window.AudioContext = window.AudioContext || window.webkitAudioContext;
-  context = new AudioContext();
+	// Fix up prefixing
+	window.AudioContext = window.AudioContext || window.webkitAudioContext;
+	context = new AudioContext();
 
-  var bufferLoader = new BufferLoader(
-    context,
-    [
-      '/sounds/original/Snare.wav',
-      '/sounds/original/Hihat.wav',
-      '/sounds/original/Kick.wav',
-      '/sounds/original/Bassline.wav',
-      '/sounds/original/sequencer2.wav',
-    ],
-    finishedLoading
-    );
+	var bufferLoader = new BufferLoader(
+		context,
+		[
+			'/sounds/original/Snare.wav',
+			'/sounds/original/Hihat.wav',
+			'/sounds/original/Kick.wav',
+			'/sounds/original/Bassline.wav',
+			'/sounds/original/sequencer2.wav',
+		],
+		finishedLoading
+		);
 
-  bufferLoader.load();
-  startTime = context.currentTime + 0.0100;
+	bufferLoader.load();
+	startTime = context.currentTime + 0.0100;
 }
 
 function initBackSoundBassline(){
@@ -197,6 +173,10 @@ function initBackSoundSequence(){
 
 function finishedLoading(_bufferList) {
 	bufferList = _bufferList;
+
+	$('#loadingmusic').addClass('hidden');
+
+	interval = setInterval(sequenceTick, 458);
 }
 
 function playSound(buffer, time) {
@@ -234,5 +214,7 @@ function rightVolumeChanged(value){
 	}
 }
 
-window.onload = init;
+$(function () {
+	init();
+});
 
