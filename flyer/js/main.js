@@ -18,8 +18,8 @@ var bufferList;
 var sources = [];
 var gains = [];
 var backPLaying = false;
-var gainNode1;
-var gainNode2;
+var gainNodeLeft;
+var gainNodeRight;
 
 function init(){
 	initSound();
@@ -122,8 +122,9 @@ function sequenceTick(){
 		$("#flow-sequencer").css("height",$(".sequence-left-group > .sequence").height()  +30);
 		if(hasStarted){
 			if(!backPLaying){
-				initBackSound1();
-				initBackSound2();
+				initBackSoundBassline();
+				initBackSoundLeft();
+				initBackSoundRight();
 				backPLaying = true;
 			}
 		}
@@ -170,6 +171,7 @@ function initSound() {
       '/sounds/original/Hihat.wav',
       '/sounds/original/Kick.wav',
       '/sounds/original/Bassline.wav',
+      '/sounds/original/sequencer.wav',
       '/sounds/original/sequencer2.wav',
     ],
     finishedLoading
@@ -179,28 +181,37 @@ function initSound() {
   startTime = context.currentTime + 0.0100;
 }
 
-function initBackSound1(){
+function initBackSoundBassline(){
 	var source = context.createBufferSource();
 	source.buffer = bufferList[3];
 	source.loop = true;
-	gainNode1 = context.createGainNode();
-	source.connect(gainNode1);
-	gainNode1.connect(context.destination);
+	source.connect(context.destination);
 	if (!source.start)
 	  source.start = source.noteOn;
 	source.start(startTime);
 }
 
-function initBackSound2(){
+function initBackSoundLeft(){
 	var source = context.createBufferSource();
 	source.buffer = bufferList[4];
 	source.loop = true;
-	gainNode2 = context.createGainNode();
-	source.connect(gainNode2);
-	gainNode2.connect(context.destination);
+	gainNodeLeft = context.createGainNode();
+	source.connect(gainNodeLeft);
+	gainNodeLeft.connect(context.destination);
 	if (!source.start)
 	  source.start = source.noteOn;
-	source.start(startTime+0.24);
+	source.start(startTime);
+}
+function initBackSoundRight(){
+	var source = context.createBufferSource();
+	source.buffer = bufferList[5];
+	source.loop = true;
+	gainNodeRight = context.createGainNode();
+	source.connect(gainNodeRight);
+	gainNodeRight.connect(context.destination);
+	if (!source.start)
+	  source.start = source.noteOn;
+	source.start(startTime);
 }
 
 function finishedLoading(_bufferList) {
@@ -228,8 +239,8 @@ function leftVolumeChanged(value){
 	// value is een waarde tussen 0 en 1
 	// konsole.log( 'left volume: ' + Math.round(value*100)/100 );
 
-	if(gainNode2){
-		gainNode2.gain.value = value;
+	if(gainNodeLeft){
+		gainNodeLeft.gain.value = value;
 	}
 }
 
@@ -237,8 +248,8 @@ function rightVolumeChanged(value){
 	// value is een waarde tussen 0 en 1
 	// konsole.log( 'right volume: ' + Math.round(value*100)/100 );
 
-	if(gainNode2){
-		gainNode2.gain.value = value;
+	if(gainNodeRight){
+		gainNodeRight.gain.value = value;
 	}
 }
 
