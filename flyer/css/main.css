@@ -241,7 +241,6 @@ body{
 }
 
 .helmet{
-
     float: left;
     position: relative;
     width: 50%;
@@ -251,12 +250,30 @@ body{
 #loadingmusic{
     position: absolute;
     width: 100%;
+    height: 26px;
     background-color: rgba(255,255,255,0.6);
     top: 0px;
     left: 0px;
 }
 
 #loadingmusic.hidden{
+    display: none;
+}
+
+#loadingbar{
+    position: absolute;
+    top: 26px;
+    left: 0px;
+    height: 3px;
+    width: 0%;
+    background-color: red;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+#loadingbar.hidden{
     display: none;
 }
 
@@ -482,10 +499,6 @@ body{
     height: 150%;
 }
 
-.hidden {
-    display: none !important;
-    visibility: hidden;
-}
 
 .visuallyhidden {
     border: 0;

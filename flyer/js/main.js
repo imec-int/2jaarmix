@@ -141,11 +141,27 @@ function initSound() {
 			'/sounds/original/Bassline.wav',
 			'/sounds/original/sequencer2.wav',
 		],
-		finishedLoading
+		finishedLoading,
+		loadingProgress
 		);
 
 	bufferLoader.load();
 	startTime = context.currentTime + 0.0100;
+}
+
+function finishedLoading(_bufferList) {
+	bufferList = _bufferList;
+
+	$('#loadingmusic').addClass('hidden');
+	$('#loadingbar').addClass('hidden');
+
+	interval = setInterval(sequenceTick, 458);
+}
+
+function loadingProgress (percentage) {
+	console.log(percentage);
+
+	$("#loadingbar").width(percentage*100 + '%');
 }
 
 function initBackSoundBassline(){
@@ -168,16 +184,6 @@ function initBackSoundSequence(){
 	if (!source.start)
 	  source.start = source.noteOn;
 	source.start(startTime);
-}
-
-
-function finishedLoading(_bufferList) {
-	bufferList = _bufferList;
-
-	$('#loadingmusic').addClass('hidden');
-
-
-	interval = setInterval(sequenceTick, 458);
 }
 
 function playSound(buffer, time) {
