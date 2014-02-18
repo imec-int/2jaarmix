@@ -114,7 +114,7 @@ function sequenceTick(){
 
 	if(!hasStarted){
 		$(".title-container > span").text(titleArray1[currentSequence]);
-
+		$(".title-container > span").css("font-size","15vw");
 	}else{
 		$(".title-container > span").text(titleArray2[currentSequence]);
 	}
@@ -175,6 +175,7 @@ function finishedLoading(_bufferList) {
 	bufferList = _bufferList;
 
 	$('#loadingmusic').addClass('hidden');
+
 
 	interval = setInterval(sequenceTick, 458);
 }
