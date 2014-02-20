@@ -13,7 +13,7 @@ var Motionsound = function (options){
 	};
 
 	var onDeviceorientation = function (event) {
-		konsole.log( Math.round(event.gamma)+" | "+ Math.round(event.beta)+" | "+ Math.round(event.alpha));
+		// konsole.log( Math.round(event.gamma)+" | "+ Math.round(event.beta)+" | "+ Math.round(event.alpha));
 
 		// console.log( Math.round(event.gamma) );
 
