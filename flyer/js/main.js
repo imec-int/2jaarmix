@@ -22,15 +22,20 @@ function init(){
 		initMotionsound();
 		initClickHandlers();
 	}catch(err){
-		$("#loadingmusic").html('AudioContext not supported. Try a real browser:p. Click to register.');
-		$("#loadingmusic").height(26*3);
-		$("#loadingmusic").click(function (event) {
-			window.location.href = 'http://mediahackathon.eventbrite.com';
-		});
+		handleError();
 	}
 
 	//fastclick for mobile devices:
 	FastClick.attach(document.body);
+}
+
+function handleError () {
+	$("#loadingmusic").html('AudioContext not supported. Try a real browser:p. But please, register anyway ;-)');
+	$("#loadingmusic").height(26*2);
+	$("#loadingmusic").click(function (event) {
+		window.location.href = 'http://mediahackathon.eventbrite.com';
+	});
+	$("#loadingbar").hide();
 }
 
 function initClickHandlers () {
@@ -150,7 +155,8 @@ function initSound() {
 			'/sounds/original/sequencer2.wav',
 		],
 		finishedLoading,
-		loadingProgress
+		loadingProgress,
+		handleError
 		);
 
 	bufferLoader.load();

@@ -1,7 +1,8 @@
-function BufferLoader(context, urlList, callback, progresscallback) {
+function BufferLoader(context, urlList, callback, progresscallback, onError) {
   this.context = context;
   this.urlList = urlList;
   this.onload = callback;
+  this.onError = onError;
   this.progresscallback = progresscallback;
   this.bufferList = new Array();
   this.loadCount = 0;
@@ -43,7 +44,7 @@ BufferLoader.prototype.loadBuffer = function(url, index) {
           loader.onload(loader.bufferList);
       },
       function(error) {
-        console.error('decodeAudioData error', error);
+        if(loader.onError) loader.onError(error);
       }
     );
   }
