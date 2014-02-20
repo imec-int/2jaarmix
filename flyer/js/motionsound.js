@@ -1,8 +1,8 @@
 var Motionsound = function (options){
 
 	var zeroOffset = 0.04;
-	var minAngle = -30; // limit to -30 and 30 (don't go further than -90 and 90, as that's the Android limit)
-	var maxAngle = 30;
+	var minAngle = -80; // limit to -30 and 30 (don't go further than -90 and 90, as that's the Android limit)
+	var maxAngle = 80;
 
 	var init = function (){
 		console.log("init motionsensors");
@@ -13,11 +13,11 @@ var Motionsound = function (options){
 	};
 
 	var onDeviceorientation = function (event) {
-		// console.log( Math.round(event.gamma)+" | "+ Math.round(event.beta)+" | "+ Math.round(event.alpha));
+		konsole.log( Math.round(event.gamma)+" | "+ Math.round(event.beta)+" | "+ Math.round(event.alpha));
 
 		// console.log( Math.round(event.gamma) );
 
-		var degrees = event.gamma;
+		var degrees = event.beta;
 
 		if(degrees > maxAngle)
 			degrees = maxAngle;
