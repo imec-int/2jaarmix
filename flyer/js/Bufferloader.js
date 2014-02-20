@@ -36,7 +36,7 @@ BufferLoader.prototype.loadBuffer = function(url, index) {
       request.response,
       function(buffer) {
         if (!buffer) {
-          alert('error decoding file data: ' + url);
+          if(loader.onError) loader.onError(error);
           return;
         }
         loader.bufferList[index] = buffer;
@@ -45,6 +45,7 @@ BufferLoader.prototype.loadBuffer = function(url, index) {
       },
       function(error) {
         if(loader.onError) loader.onError(error);
+        return;
       }
     );
   }
