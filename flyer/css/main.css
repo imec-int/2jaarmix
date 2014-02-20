@@ -266,12 +266,12 @@ body{
     left: 0px;
     height: 3px;
     width: 0%;
-    background-color: red;
+    background-color: #e50d74;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
-    opacity: 0.6;
+    opacity: 0.8;
 }
 
 #loadingbar.hidden{
