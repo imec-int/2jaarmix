@@ -30,11 +30,8 @@ function init(){
 }
 
 function handleError () {
-	$("#loadingmusic").html('AudioContext not supported. Try a real browser:p. But please, register anyway ;-)');
+	$("#loadingmusic").html('<a href="http://mediahackathon.eventbrite.com", target="_parent">AudioContext not supported. Try a real browser:p. But please, register anyway ;-)</a>');
 	$("#loadingmusic").height(26*2);
-	$("#loadingmusic").click(function (event) {
-		window.location.href = 'http://mediahackathon.eventbrite.com';
-	});
 	$("#loadingbar").hide();
 }
 

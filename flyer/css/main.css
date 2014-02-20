@@ -610,3 +610,9 @@ body{
         page-break-after: avoid;
     }
 }
+
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
