@@ -22,7 +22,11 @@ function init(){
 		initMotionsound();
 		initClickHandlers();
 	}catch(err){
-		$("#loadingmusic").html('AudioContext not supported. Try a real browsers:p');
+		$("#loadingmusic").html('AudioContext not supported. Try a real browser:p. Click to register.');
+		$("#loadingmusic").height(26*3);
+		$("#loadingmusic").click(function (event) {
+			window.location.href = 'http://mediahackathon.eventbrite.com';
+		});
 	}
 
 	//fastclick for mobile devices:
