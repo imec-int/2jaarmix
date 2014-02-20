@@ -17,9 +17,13 @@ var gainNodeSequence;
 function init(){
 	$("#flow-sequencer").css("height",$(".sequence-left-group > .sequence").height() + 30);
 
-	initSound();
-	initMotionsound();
-	initClickHandlers();
+	try{
+		initSound();
+		initMotionsound();
+		initClickHandlers();
+	}catch(err){
+		$("#loadingmusic").html('AudioContext not supported. Try a real browsers:p');
+	}
 
 	//fastclick for mobile devices:
 	FastClick.attach(document.body);
