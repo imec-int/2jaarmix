@@ -13,8 +13,28 @@ var startTime = 0;
 var bufferList;
 var backPLaying = false;
 var gainNodeSequence;
+var preloadedSounds;
 
 function init(){
+	if(isFirefox()){
+		preloadedSounds = [
+			'/sounds/original/Snare.ogg',
+			'/sounds/original/Hihat.ogg',
+			'/sounds/original/Kick.ogg',
+			'/sounds/original/Bassline.ogg',
+			'/sounds/original/sequencer2.ogg',
+		]
+	}else{
+		preloadedSounds = [
+			'/sounds/original/Snare.mp3',
+			'/sounds/original/Hihat.mp3',
+			'/sounds/original/Kick.mp3',
+			'/sounds/original/Bassline.wav',
+			'/sounds/original/sequencer2.wav',
+		]
+	}
+
+
 	$("#flow-sequencer").css("height",$(".sequence-left-group > .sequence").height() + 30);
 
 	try{
@@ -27,6 +47,10 @@ function init(){
 
 	//fastclick for mobile devices:
 	FastClick.attach(document.body);
+}
+
+function isFirefox(){
+	return navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
 }
 
 function handleError () {
@@ -142,15 +166,11 @@ function initSound() {
 	window.AudioContext = window.AudioContext || window.webkitAudioContext;
 	context = new AudioContext();
 
+
+
 	var bufferLoader = new BufferLoader(
 		context,
-		[
-			'/sounds/original/Snare.mp3',
-			'/sounds/original/Hihat.mp3',
-			'/sounds/original/Kick.mp3',
-			'/sounds/original/Bassline.wav',
-			'/sounds/original/sequencer2.wav',
-		],
+		preloadedSounds,
 		finishedLoading,
 		loadingProgress,
 		handleError
@@ -187,7 +207,7 @@ function initBackSoundSequence(){
 	var source = context.createBufferSource();
 	source.buffer = bufferList[4];
 	source.loop = true;
-	gainNodeSequence = context.createGainNode();
+	gainNodeSequence = context.createGain();
 	source.connect(gainNodeSequence);
 	gainNodeSequence.connect(context.destination);
 	if (!source.start)
