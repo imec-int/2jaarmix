@@ -252,10 +252,15 @@ body{
 
 #loadingmusic{
     width: 100%;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    opacity: 1;
 }
 
 #loadingmusic.hidden{
-    display: none;
+    opacity: 0;
 }
 
 #loadingmusic .text{
