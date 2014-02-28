@@ -231,6 +231,12 @@ body{
     text-align: center;
     font-weight: bold;
     margin-top: 5px;
+    line-height: 10vw;
+}
+
+.title-container span.bigger{
+    font-size: 15vw;
+    line-height: 15vw;
 }
 
 .helmet-container{

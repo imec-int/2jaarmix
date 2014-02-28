@@ -148,7 +148,7 @@ function sequenceTick(){
 
 	if(!hasStarted){
 		$(".title-container > span").text(titleArray1[currentSequence]);
-		$(".title-container > span").css("font-size","15vw");
+		$(".title-container > span").addClass("bigger");
 	}else{
 		$(".title-container > span").text(titleArray2[currentSequence]);
 	}
