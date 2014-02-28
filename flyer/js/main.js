@@ -147,10 +147,9 @@ function sequenceTick(){
 	// $("body").css("background-color",colors[Math.floor(Math.random()*colors.length)]);
 
 	if(!hasStarted){
-		$(".title-container > span").text(titleArray1[currentSequence]);
-		$(".title-container > span").addClass("bigger");
+		$(".title-container > a").text(titleArray1[currentSequence]);
 	}else{
-		$(".title-container > span").text(titleArray2[currentSequence]);
+		$(".title-container > a").text(titleArray2[currentSequence]);
 	}
 
 	if(leftArray[(currentSequence + 1) % 4])
@@ -184,13 +183,12 @@ function finishedLoading(_bufferList) {
 	bufferList = _bufferList;
 
 	$('#loadingmusic').addClass('hidden');
-	$('#loadingbar').addClass('hidden');
 
 	interval = setInterval(sequenceTick, 458);
 }
 
 function loadingProgress (percentage) {
-	$("#loadingbar").width(percentage*100 + '%');
+	$("#loadingmusic > .bar").width(percentage*100 + '%');
 }
 
 function initBackSoundBassline(){

@@ -1,7 +1,18 @@
-*{
-    position: relative;
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
 }
-
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
 /* ==========================================================================
    HTML5 Boilerplate styles - h5bp.com (generated via initializr.com)
    ========================================================================== */
@@ -69,8 +80,7 @@ body {
 }
 
 .wrapper {
-    width: 90%;
-    /*margin: 0 5% 0 5%;*/
+    width: 100%;
 }
 
 /* ===================
@@ -216,29 +226,23 @@ body{
     overflow: hidden;
 }
 
+/* TITLE CONTAINER */
 .title-container{
     width: 100%;
     height: 12%;
     margin-top:10px;
     cursor: pointer;
+    text-align: center;
 }
 
-.title-container span{
+.title-container a{
     color: #e50d74;
     font-size: 10vw;
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-    font-weight: bold;
-    margin-top: 5px;
     line-height: 10vw;
+    font-weight: bold;
 }
 
-.title-container span.bigger{
-    font-size: 15vw;
-    line-height: 15vw;
-}
-
+/* HELMET CONTAINER */
 .helmet-container{
     position: relative;
     width: 100%;
@@ -246,30 +250,21 @@ body{
     text-align: center;
 }
 
-.helmet{
-    float: left;
-    position: relative;
-    width: 50%;
-    height: 100%;
-}
-
 #loadingmusic{
-    position: absolute;
     width: 100%;
-    height: 26px;
-    background-color: rgba(255,255,255,0.6);
-    top: 0px;
-    left: 0px;
 }
 
 #loadingmusic.hidden{
     display: none;
 }
 
-#loadingbar{
-    position: absolute;
-    top: 26px;
-    left: 0px;
+#loadingmusic .text{
+    width: 100%;
+    height: 26px;
+    background-color: rgba(255,255,255,0.6);
+}
+
+#loadingmusic .bar{
     height: 3px;
     width: 0%;
     background-color: #e50d74;
@@ -280,35 +275,38 @@ body{
     opacity: 0.8;
 }
 
-#loadingbar.hidden{
-    display: none;
-}
 
-.sequence{
-    width: 60%;
-    height: 10%;
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    cursor: pointer;
-}
-
+/* SEQQUENCE CONTAINER */
 .sequence-container{
     height: 60%;
     width: 100%;
     position: relative;
-    z-index: 0;
-    /*margin-top: 40px;*/
+    font-size: 0px; /* anders zou inline-block wel eens kunnen zorgen voor whitespace tussen de divs */
+    white-space:nowrap;
+}
+
+.sequence-group{
+    height: 100%;
+    width: 33.5%;
+    display: inline-block;
+}
+
+.sequence{
+    width: 80%;
+    height: 15%;
+    margin-top: 10px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #flow-sequencer{
+    position: absolute;
     width: 100%;
     height: 15%;
     opacity: 0.8;
     background-color: #e50d74;
-    position: relative;
     top: 5px;
-    z-index: -1;
 }
 
 .sequence-left{
@@ -328,66 +326,22 @@ body{
 
 .sequence-left-off{
     border: 10px solid #F4B227;
-    /*height: 30px;*/
 }
 
 .sequence-middle-off{
     border: 10px solid #44D165;
-    /*height: 30px;*/
 }
 
 .sequence-right-off{
     border: 10px solid #08A3DA;
-    /*height: 30px;*/
 }
 
-.sequence-group{
-    /*margin-top: 5%;*/
-    height: 100%;
-    width: 33%;
-    float: left;
-}
 
-.sequence-left-group{
-    /*margin-top: 5%;
-    height: 100%;
-    width: 25%;
-    float: left;*/
-}
 
-.sequence-middle-group{
-    /*margin-top: 5%;
-    height: 100%;
-    width: 25%;
-    float: left;*/
-}
 
-.sequence-right-group{
-    /*margin-top: 5%;
-    height: 100%;
-    width: 25%;
-    float: left;*/
-}
-
-.title{
-
-    margin-top: 30px;
-    background-image: url("/img/arrow.png");
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size: contain;
-    height: 100px;
-}
-
-.title h2{
-    padding-top: 40px;
-    color: #D18461;
-    font-size: 20vw;
-
-}
-
+/* CREDITS */
 #madeby{
-    position: fixed;
+    position: absolute;
     bottom: 0px;
     color: #e50d74;
     font-size: 9px;

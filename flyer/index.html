@@ -36,8 +36,6 @@ Heel eenvoudig! Je komt op zaterdag 15 maart tegen 11 uur ’s morgens naar de A
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/konsole.css">
         <link rel="stylesheet" href="css/desktop.css">
-
-        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -47,19 +45,22 @@ Heel eenvoudig! Je komt op zaterdag 15 maart tegen 11 uur ’s morgens naar de A
         <div class="bg"></div>
         <div class="main-container">
             <div class="main wrapper clearfix">
-                <a href="http://mediahackathon.eventbrite.com", target="_parent">
-                    <div class="title-container">
-                        <span>-&gt; Inschrijven! &lt;-</span>
-                    </div>
-                </a>
-                <div class="helmet-container">
-                    <div id="helmet-left" class="helmet"></div>
-                    <div id="helmet-right" class="helmet"></div>
-                    <div id="loadingmusic">Loading music...</div>
-                    <div id="loadingbar"></div>
-                </div>
-                <div class="sequence-container">
 
+                <div class="title-container">
+                    <a href="http://mediahackathon.eventbrite.com", target="_parent">
+                        -&gt; Inschrijven! &lt;-
+                    </a>
+                </div>
+
+                <div class="helmet-container">
+                    <div id="loadingmusic">
+                        <div class="text">Loading music...</div>
+                        <div class="bar"></div>
+                    </div>
+                </div>
+
+                <div class="sequence-container">
+                    <div id="flow-sequencer">&#160;</div>
                     <div class="sequence-group sequence-left-group">
                         <div class="sequence sequence-left-off"></div>
                         <div class="sequence sequence-left-off"></div>
@@ -78,11 +79,12 @@ Heel eenvoudig! Je komt op zaterdag 15 maart tegen 11 uur ’s morgens naar de A
                         <div class="sequence sequence-right-off"></div>
                         <div class="sequence sequence-right-off"></div>
                     </div>
-                    <div id="flow-sequencer">&#160;</div>
+
                 </div> <!-- #sequence-container -->
 
+                <span id="madeby">iMinds Media Innovation Center</span>
             </div> <!-- #main -->
-            <span id="madeby">iMinds Media Innovation Center</span>
+
         </div> <!-- #main-container -->
 
 
