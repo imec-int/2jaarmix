@@ -14,6 +14,7 @@ var bufferList;
 var backPLaying = false;
 var gainNodeSequence;
 var preloadedSounds;
+var flyerstarted = false;
 
 function init(){
 	if(isFirefox()){
@@ -37,13 +38,7 @@ function init(){
 
 	$("#flow-sequencer").css("height",$(".sequence-left-group > .sequence").height() + 30);
 
-	try{
-		initSound();
-		initMotionsound();
-		initClickHandlers();
-	}catch(err){
-		handleError();
-	}
+	initClickHandlers();
 
 	//fastclick for mobile devices:
 	FastClick.attach(document.body);
@@ -51,6 +46,17 @@ function init(){
 
 function isFirefox(){
 	return navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+}
+
+function startFlyer () {
+	if(flyerstarted) return;
+	try{
+		initSound();
+		initMotionsound();
+		flyerstarted = true;
+	}catch(err){
+		handleError();
+	}
 }
 
 function handleError () {
@@ -61,7 +67,7 @@ function handleError () {
 
 function initClickHandlers () {
 
-	$(".sequence-group > .sequence").click(function(event){
+	$(".sequence-group > .sequence").click(function (event){
 		event.preventDefault();
 		if($(this).hasClass("sequence-left")||$(this).hasClass("sequence-left-off")){
 			//left
@@ -92,12 +98,24 @@ function initClickHandlers () {
 		return false;
 	});
 
-	$(".title").click(function(event){
+	$(".title").click(function (event){
 		event.preventDefault();
 		$(".title").hide();
 
 		return false;
 	});
+
+
+	$("#buttonShowFlyer").click(function (event) {
+		$('.flip-container').addClass('turnaround');
+		startFlyer();
+	});
+
+	$("#buttonShowProgramme").click(function (event) {
+		$('.flip-container').removeClass('turnaround');
+	});
+
+
 }
 
 function updateSequenceArrays(){

@@ -43,54 +43,67 @@ Heel eenvoudig! Je komt op zaterdag 15 maart tegen 11 uur ’s morgens naar de A
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
         <div class="desktop_bg"></div>
-        <div class="bg"></div>
         <div class="main-container">
-            <div class="main wrapper clearfix">
 
-                <div class="title-container">
-                    <a href="http://mediahackathon.eventbrite.com", target="_parent">
-                        -&gt; Inschrijven! &lt;-
-                    </a>
-                </div>
+            <div class="flip-container">
+                <div class="flipper">
+                    <div class="front">
+                        <!-- front content -->
+                        <div class="buttons">
+                            <br />
+                            <button id="buttonShowFlyer">Bekijk de e-flyer</button>
+                        </div>
+                        <!-- END front content -->
+                    </div>
 
-                <div class="helmet-container">
-                    <div id="loadingmusic">
-                        <div class="text">Loading music...</div>
-                        <div class="bar"></div>
+                    <div class="back">
+                        <!-- back content -->
+                        <div class="bg"></div>
+
+                        <div class="title-container">
+                            <a href="http://mediahackathon.eventbrite.com", target="_parent">
+                                -&gt; Inschrijven! &lt;-
+                            </a>
+                        </div>
+                        <div class="helmet-container">
+                            <button id="buttonShowProgramme">Programma</button>
+                            <div id="loadingmusic">
+                                <div class="text">Loading music...</div>
+                                <div class="bar"></div>
+                            </div>
+                        </div>
+                        <div class="sequence-container">
+                            <div id="flow-sequencer">&#160;</div>
+                            <div class="sequence-group sequence-left-group">
+                                <div class="sequence sequence-left-off"></div>
+                                <div class="sequence sequence-left-off"></div>
+                                <div class="sequence sequence-left-off"></div>
+                                <div class="sequence sequence-left-off"></div>
+                            </div>
+                            <div class="sequence-group sequence-middle-group">
+                                <div class="sequence sequence-middle-off"></div>
+                                <div class="sequence sequence-middle-off"></div>
+                                <div class="sequence sequence-middle-off"></div>
+                                <div class="sequence sequence-middle-off"></div>
+                            </div>
+                            <div class="sequence-group sequence-right-group">
+                                <div class="sequence sequence-right-off"></div>
+                                <div class="sequence sequence-right-off"></div>
+                                <div class="sequence sequence-right-off"></div>
+                                <div class="sequence sequence-right-off"></div>
+                            </div>
+
+                            <div id="inschrijven">
+                                <a class="button" href="http://mediahackathon.eventbrite.com", target="_parent">
+                                    Inschrijven!
+                                </a>
+                            </div>
+                        </div>
+                        <span id="madeby">iMinds Media Innovation Center</span>
+                        <!-- END back content -->
                     </div>
                 </div>
-
-                <div class="sequence-container">
-                    <div id="flow-sequencer">&#160;</div>
-                    <div class="sequence-group sequence-left-group">
-                        <div class="sequence sequence-left-off"></div>
-                        <div class="sequence sequence-left-off"></div>
-                        <div class="sequence sequence-left-off"></div>
-                        <div class="sequence sequence-left-off"></div>
-                    </div>
-                    <div class="sequence-group sequence-middle-group">
-                        <div class="sequence sequence-middle-off"></div>
-                        <div class="sequence sequence-middle-off"></div>
-                        <div class="sequence sequence-middle-off"></div>
-                        <div class="sequence sequence-middle-off"></div>
-                    </div>
-                    <div class="sequence-group sequence-right-group">
-                        <div class="sequence sequence-right-off"></div>
-                        <div class="sequence sequence-right-off"></div>
-                        <div class="sequence sequence-right-off"></div>
-                        <div class="sequence sequence-right-off"></div>
-                    </div>
-
-                    <div id="inschrijven">
-                        <a class="button" href="http://mediahackathon.eventbrite.com", target="_parent">
-                            Inschrijven!
-                        </a>
-                    </div>
-
-                </div> <!-- #sequence-container -->
-
-                <span id="madeby">iMinds Media Innovation Center</span>
-            </div> <!-- #main -->
+            </div>
 
         </div> <!-- #main-container -->
 
