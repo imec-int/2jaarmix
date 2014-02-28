@@ -163,6 +163,8 @@ body{
 .front {
     z-index: 2;;
     background-color: #F7F7F4;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 
 /* back, initially hidden pane */
@@ -175,9 +177,34 @@ body{
 /* ==========================================================================
    programma (front)
    ========================================================================== */
+
+.program{
+   width: 100%;
+   top: 0px;
+   left: 0px;
+}
+
 .buttons{
+    position: absolute;
+    top: 10px;
+    left: 0px;
     width: 100%;
     text-align: center;
+    opacity: 0;
+}
+
+.buttons .flyer {
+    float: left;
+    height: 89px;
+    left: 0px;
+    width: 50%;
+}
+
+.buttons .inschrijven {
+    float: right;
+    height: 89px;
+    right: 0px;
+    width: 50%;
 }
 
 /* ==========================================================================

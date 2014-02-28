@@ -116,6 +116,26 @@ function initClickHandlers () {
 	});
 
 
+	$(window).on("load resize orientationchange", function() {
+
+		// 698 × 1292
+
+		var r = $(window).width() / 698;
+		var imageHeight = 1292 * r;
+
+		var buttonHeight = 110*r;
+
+		var buttonOffset = imageHeight - buttonHeight;
+
+		$('.buttons').css('top', buttonOffset);
+
+		$('.flyer, .inschrijven').css({
+			height: buttonHeight + 'px'
+		});
+
+	});
+
+
 }
 
 function updateSequenceArrays(){
