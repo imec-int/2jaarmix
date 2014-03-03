@@ -120,7 +120,7 @@ function initClickHandlers () {
 
 		// 698 × 1292
 
-		var r = $(window).width() / 698;
+		var r = $('.main-container').width() / 698;
 		var imageHeight = 1292 * r;
 
 		var buttonHeight = 110*r;

@@ -113,6 +113,9 @@ body{
     height: 100%;
     width: 100%;
     overflow: hidden;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* ==========================================================================
@@ -162,7 +165,6 @@ body{
 /* front pane, placed above back */
 .front {
     z-index: 2;;
-    background-color: #F7F7F4;
     overflow: scroll;
     -webkit-overflow-scrolling: touch;
 }
@@ -356,4 +358,6 @@ body{
     width: 100%;
     text-align: center;
 }
+
+
 
