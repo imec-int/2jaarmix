@@ -243,10 +243,6 @@ body{
     text-align: center;
 }
 
-#buttonShowProgramme{
-    margin-top: 4px;
-}
-
 #loadingmusic{
     width: 100%;
     -webkit-transition: all 0.3s;
@@ -337,10 +333,27 @@ body{
     border: 10px solid #08A3DA;
 }
 
-#inschrijven{
-    text-align: center;
+.flyerbuttons{
     width: 100%;
 }
+
+.flyerbutton-programma{
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    width: 40%;
+    overflow: hidden;
+}
+
+.flyerbutton-inschrijven{
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    width: 40%;
+    overflow: hidden;
+}
+
+
 
 /* CREDITS */
 #madeby{
