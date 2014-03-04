@@ -52,61 +52,67 @@ Hiermee kunnen jullie aan de slag om creatief om te springen met muziek en media
 
             <div class="flip-container">
                 <div class="flipper">
-                    <div class="front">
+                    <div class="agenda front">
                         <!-- front content -->
 
-                        <img src="/img/programma_mediahackathon_buttons.png" class="program" />
+                        <img class="agenda-background" src="/img/programma_mediahackathon_buttons.png" />
 
-                        <div class="buttons">
-                            <button id="buttonShowFlyer" class="flyer"></button>
-                            <a class="button inschrijven" href="http://mediahackathon.eventbrite.com", target="_parent"></a>
+                        <div class="agenda-content">
+                            <button class="flyer-button" id="buttonShowFlyer">e-flyer</button>
+                            <a class="button inschrijven-button" href="http://mediahackathon.eventbrite.com", target="_parent">inschrijven</a>
                         </div>
 
                         <!-- END front content -->
                     </div>
 
-                    <div class="back">
+                    <div class="flyer back">
                         <!-- back content -->
-                        <div class="bg"></div>
 
-                        <div class="title-container">
-                            <a href="http://mediahackathon.eventbrite.com", target="_parent">
-                                -&gt; Inschrijven! &lt;-
-                            </a>
-                        </div>
-                        <div class="helmet-container">
-                            <div id="loadingmusic">
-                                <div class="text">Loading music...</div>
-                                <div class="bar"></div>
+                        <div class="flyer-background-colorpane"></div>
+
+                        <img class="flyer-background" src="/img/background_cut.png" />
+
+                        <div class="flyer-content">
+
+                            <div class="title-container">
+                                <a href="http://mediahackathon.eventbrite.com", target="_parent">
+                                    -&gt; Inschrijven! &lt;-
+                                </a>
                             </div>
-                        </div>
-                        <div class="sequence-container">
-                            <div id="flow-sequencer">&#160;</div>
-                            <div class="sequence-group sequence-left-group">
-                                <div class="sequence sequence-left-off"></div>
-                                <div class="sequence sequence-left-off"></div>
-                                <div class="sequence sequence-left-off"></div>
-                                <div class="sequence sequence-left-off"></div>
+                            <div class="helmet-container">
+                                <div id="loadingmusic">
+                                    <div class="text">Loading music...</div>
+                                    <div class="bar"></div>
+                                </div>
                             </div>
-                            <div class="sequence-group sequence-middle-group">
-                                <div class="sequence sequence-middle-off"></div>
-                                <div class="sequence sequence-middle-off"></div>
-                                <div class="sequence sequence-middle-off"></div>
-                                <div class="sequence sequence-middle-off"></div>
-                            </div>
-                            <div class="sequence-group sequence-right-group">
-                                <div class="sequence sequence-right-off"></div>
-                                <div class="sequence sequence-right-off"></div>
-                                <div class="sequence sequence-right-off"></div>
-                                <div class="sequence sequence-right-off"></div>
+                            <div class="sequence-container">
+                                <div id="flow-sequencer">&#160;</div>
+                                <div class="sequence-group sequence-left-group">
+                                    <div class="sequence sequence-left-off"></div>
+                                    <div class="sequence sequence-left-off"></div>
+                                    <div class="sequence sequence-left-off"></div>
+                                    <div class="sequence sequence-left-off"></div>
+                                </div>
+                                <div class="sequence-group sequence-middle-group">
+                                    <div class="sequence sequence-middle-off"></div>
+                                    <div class="sequence sequence-middle-off"></div>
+                                    <div class="sequence sequence-middle-off"></div>
+                                    <div class="sequence sequence-middle-off"></div>
+                                </div>
+                                <div class="sequence-group sequence-right-group">
+                                    <div class="sequence sequence-right-off"></div>
+                                    <div class="sequence sequence-right-off"></div>
+                                    <div class="sequence sequence-right-off"></div>
+                                    <div class="sequence sequence-right-off"></div>
+                                </div>
                             </div>
 
-                            <div class="flyerbuttons">
-                                <button class="flyerbutton-programma" id="buttonShowProgramme">Programma</button>
-                                <a class="button flyerbutton-inschrijven" href="http://mediahackathon.eventbrite.com", target="_parent">Inschrijven!</a>
-                            </div>
+                            <button class="agenda-button" id="buttonShowProgramme">Programma</button>
+                            <a class="button inschrijven-button" href="http://mediahackathon.eventbrite.com", target="_parent">Inschrijven!</a>
+
+                            <span id="madeby">iMinds Media Innovation Center</span>
+
                         </div>
-                        <span id="madeby">iMinds Media Innovation Center</span>
                         <!-- END back content -->
                     </div>
                 </div>

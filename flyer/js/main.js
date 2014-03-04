@@ -117,22 +117,10 @@ function initClickHandlers () {
 
 
 	$(window).on("load resize orientationchange", function() {
+		$('.agenda-content').height( $('.agenda-background').height() );
 
-		// 698 × 1292
-
-		var r = $('.main-container').width() / 698;
-		var imageHeight = 1292 * r;
-
-		var buttonHeight = 110*r;
-
-		var buttonOffset = imageHeight - buttonHeight;
-
-		$('.buttons').css('top', buttonOffset);
-
-		$('.flyer, .inschrijven').css({
-			height: buttonHeight + 'px'
-		});
-
+		$('.flyer-content').height( $('.flyer-background').height() );
+		$('.flyer-background-colorpane').height( $('.flyer-background').height() );
 	});
 
 
@@ -176,7 +164,10 @@ function sequenceTick(){
 	}else{
 		currentSequence ++;
 	}
-	$("body").css("background-color","rgb("+(Math.floor(Math.random()*128))+","+(Math.floor(Math.random()*64))+","+(Math.floor(Math.random()*128)+128)+")");
+	var backgroundcolor = "rgb("+(Math.floor(Math.random()*128))+","+(Math.floor(Math.random()*64))+","+(Math.floor(Math.random()*128)+128)+")";
+
+	$("body").css("background-color", backgroundcolor);
+	$(".flyer-background-colorpane").css("background-color", backgroundcolor);
 
 
 	var top = parseInt($("#flow-sequencer").css("top"), 10);

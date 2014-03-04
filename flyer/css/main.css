@@ -175,52 +175,57 @@ body{
    programma (front)
    ========================================================================== */
 
-.program{
-   width: 100%;
-   top: 0px;
-   left: 0px;
+.agenda-background{
+    position: relative;
+    width: 100%;
 }
 
-.buttons{
+.agenda-content{
     position: absolute;
-    top: 10px;
+    top: 0px;
     left: 0px;
     width: 100%;
-    text-align: center;
+}
+
+.agenda-content .flyer-button {
+    bottom: 1%;
+    height: 7.5%;
+    left: 7%;
+    width: 26%;
+    overflow: hidden;
+    position: absolute;
     opacity: 0;
 }
 
-.buttons .flyer {
-    float: left;
-    height: 89px;
-    left: 0px;
-    width: 50%;
-}
-
-.buttons .inschrijven {
-    float: right;
-    height: 89px;
-    right: 0px;
-    width: 50%;
+.agenda-content .inschrijven-button {
+    bottom: 1.5%;
+    height: 7%;
+    right: 5%;
+    width: 36%;
+    overflow: hidden;
+    position: absolute;
+    opacity: 0;
 }
 
 /* ==========================================================================
    e-flyer (back)
    ========================================================================== */
 
-.bg{
-    background-image: url("/img/background.png");
-    background-size: cover;
-    width: 100%;
-    height: 105%;
-    position: fixed;
-    top: 0px;
-    left: 0px;
+
+.flyer-background{
+   position: relative;
+   width: 100%;
 }
 
+.flyer-content, .flyer-background-colorpane{
+   position: absolute;
+   top: 0px;
+   left: 0px;
+   width: 100%;
+}
 
 /* TITLE CONTAINER */
-.title-container{
+.flyer-content .title-container{
     width: 100%;
     height: 10%;
     margin-top:10px;
@@ -228,7 +233,7 @@ body{
     text-align: center;
 }
 
-.title-container a{
+.flyer-content .title-container a{
     color: #e50d74;
     font-size: 40px;
     line-height: 40px;
@@ -236,14 +241,14 @@ body{
 }
 
 /* HELMET CONTAINER */
-.helmet-container{
+.flyer-content .helmet-container{
     position: relative;
     width: 100%;
     height: 18%;
     text-align: center;
 }
 
-#loadingmusic{
+.flyer-content #loadingmusic{
     width: 100%;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
@@ -252,17 +257,17 @@ body{
     opacity: 1;
 }
 
-#loadingmusic.hidden{
+.flyer-content #loadingmusic.hidden{
     opacity: 0;
 }
 
-#loadingmusic .text{
+.flyer-content #loadingmusic .text{
     width: 100%;
     height: 26px;
     background-color: rgba(255,255,255,0.6);
 }
 
-#loadingmusic .bar{
+.flyer-content #loadingmusic .bar{
     height: 3px;
     width: 0%;
     background-color: #e50d74;
@@ -274,7 +279,7 @@ body{
 }
 
 /* SEQQUENCE CONTAINER */
-.sequence-container{
+.flyer-content .sequence-container{
     height: 50%;
     width: 100%;
     position: relative;
@@ -282,13 +287,13 @@ body{
     white-space:nowrap;
 }
 
-.sequence-group{
+.flyer-content .sequence-group{
     height: 100%;
     width: 33.5%;
     display: inline-block;
 }
 
-.sequence{
+.flyer-content .sequence{
     width: 80%;
     height: 20%;
     margin-top: 10px;
@@ -297,7 +302,7 @@ body{
     margin-right: auto;
 }
 
-#flow-sequencer{
+.flyer-content #flow-sequencer{
     position: absolute;
     width: 100%;
     height: 15%;
@@ -306,62 +311,60 @@ body{
     top: 5px;
 }
 
-.sequence-left{
+.flyer-content .sequence-left{
     background-color: #F4B227;
     border: 10px solid #F4B227;
 }
 
-.sequence-right{
+.flyer-content .sequence-right{
     background-color: #08A3DA;
     border: 10px solid #08A3DA;
 }
 
-.sequence-middle{
+.flyer-content .sequence-middle{
     background-color: #44D165;
     border: 10px solid #44D165;
 }
 
-.sequence-left-off{
+.flyer-content .sequence-left-off{
     border: 10px solid #F4B227;
 }
 
-.sequence-middle-off{
+.flyer-content .sequence-middle-off{
     border: 10px solid #44D165;
 }
 
-.sequence-right-off{
+.flyer-content .sequence-right-off{
     border: 10px solid #08A3DA;
 }
 
-.flyerbuttons{
-    width: 100%;
-}
-
-.flyerbutton-programma{
-    position: absolute;
-    top: 0px;
-    left: 20px;
+.flyer-content .agenda-button{
+    bottom: 5%;
+    left: 5%;
     width: 40%;
     overflow: hidden;
+    position: absolute;
+    text-overflow: ellipsis;
+    text-align: center;
 }
 
-.flyerbutton-inschrijven{
-    position: absolute;
-    top: 0px;
-    right: 20px;
+.flyer-content .inschrijven-button{
+    bottom: 5%;
+    right: 5%;
     width: 40%;
     overflow: hidden;
+    position: absolute;
+    text-overflow: ellipsis;
+    text-align: center;
 }
-
 
 
 /* CREDITS */
-#madeby{
+.flyer-content #madeby{
     position: absolute;
     bottom: 0px;
     color: #e50d74;
     font-size: 9px;
-    display: inline-block;
     width: 100%;
     text-align: center;
 }
