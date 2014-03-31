@@ -7,7 +7,7 @@ var activeMenu = "movie";
 $(document).ready(function() {
   // alert($("#movie .videoWrapper").height());
   setTimeout(initCarousel, 200);
-  // setTimeout(loadMovies, 500);
+  setTimeout(loadMovies, 500);
 
 });
 
