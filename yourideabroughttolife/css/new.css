@@ -74,6 +74,13 @@ img.stamp_find { max-width: 77.727272%; }
 .nine { width: 72.916667%; }
 .twelve { width: 97.916667%; }
 
+body{
+	/*background-color: rgb(139,166,180);*/
+
+	/*background-color: rgba(58, 63, 63, 0.4);*/
+
+}
+
 .desktop_bg{
     background-image: url("../img/desktop_bg2.png");
     background-repeat: repeat;
@@ -114,14 +121,13 @@ h3{
 */
 #menu{
     width: 180px;
-    background-color: #333;
+    background-color: rgba(45,45,45,0.8);
     padding: 10px;
     padding-bottom: 15px;
     padding-top: 15px;
     position: fixed;
     top: 0;
     right: 10px;
-    opacity: 0.8;
     z-index: 10000;
 }
 #menu ul{
@@ -178,9 +184,9 @@ h3{
 	display: block;
 }*/
 
-#movie{
+/*#movie{
 	background-color: rgba(175,255,230,0.2);
-}
+}*/
 
 .centerVertical{
 	margin: 0%;
@@ -191,7 +197,7 @@ h3{
 
 .videoWrapper {
 	position: relative;
-	padding-bottom: 56.25%; /* 16:9 */
+	padding-bottom: 54.10%; /* 16:9 = 56.25% */
 	padding-top: 25px;
 	height: 0;
 
@@ -208,6 +214,10 @@ h3{
 	font-size: 28px;
 	text-align: center;
 	color: #333;
+}
+
+@media only screen and (min-width: 1280px) {
+	#movie .videoWrapper{width: 1280px; padding-bottom: 720px; margin-top: 25px;}
 }
 
 /*
@@ -313,6 +323,12 @@ h3{
 	height: 30px;
 }
 
+.communication a{
+	color: #fff;
+	font-size: 18px;
+	line-height: 24px;
+}
+
 .commInfo{
 	font-size: 28px;
 	line-height: 32px;
@@ -346,6 +362,18 @@ h3{
 }
 .moreInfo a:hover{
 	color: #ccc;
+}
+
+#owl-hackers{
+	max-width: 1280px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#owl-debat{
+	max-width: 1280px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 /*#home {
