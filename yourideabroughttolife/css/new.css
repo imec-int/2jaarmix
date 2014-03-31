@@ -78,7 +78,10 @@ body{
 	/*background-color: rgb(139,166,180);*/
 
 	/*background-color: rgba(58, 63, 63, 0.4);*/
+}
 
+@media screen and (max-device-width: 480px), (max-width: 480px)  {
+	.section{height: auto;height: auto !important; min-height: 66%;}
 }
 
 .desktop_bg{
@@ -96,7 +99,9 @@ body{
 
 .h2Container h2{
 	color: #333;
-	font-size: 25px;
+	font-size: 28px;
+	font-family: 'gothamcondensedmedium';
+	text-transform: uppercase;
 }
 
 .h2Container{
@@ -114,6 +119,7 @@ h3{
 	margin-bottom: 15px;
 	margin-top: 15px;
 	clear: both;
+	color: rgb(56, 56, 56);
 }
 
 /*
@@ -184,9 +190,15 @@ h3{
 	display: block;
 }*/
 
-/*#movie{
-	background-color: rgba(175,255,230,0.2);
-}*/
+#movie{
+	background-color: rgba(218,227,232,0.3);
+}
+#hackathon{
+	background-color: rgba(189,204,210,0.3);
+}
+#presentaties{
+	background-color: rgba(139,166,180,0.3);
+}
 
 .centerVertical{
 	margin: 0%;

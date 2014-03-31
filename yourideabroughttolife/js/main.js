@@ -1,4 +1,4 @@
-var loadedMovies = 1;
+var loadedMovies = 0;
 var movieArray = [87475447,87475447,87475447,87475447]
 var movieDivArray = ["#m0","#m1","#m2","#m3"];
 var scroller=self.setInterval(function(){checkScroll()},400);
@@ -7,7 +7,7 @@ var activeMenu = "movie";
 $(document).ready(function() {
   // alert($("#movie .videoWrapper").height());
   setTimeout(initCarousel, 200);
-  setTimeout(loadMovies, 500);
+  // setTimeout(loadMovies, 500);
 
 });
 
