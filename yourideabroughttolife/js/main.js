@@ -40,7 +40,7 @@ function initCarousel(){
 
 function loadMovies(){
   if(loadedMovies < movieArray.length){
-    console.log("loading movie "+loadedMovies)
+    // console.log("loading movie "+loadedMovies)
     $(movieDivArray[loadedMovies]).append(
       '<iframe id="player'+loadedMovies+'" src="http://player.vimeo.com/video/'+movieArray[loadedMovies]+'?api=1&autoplay=0&player_id=player'+loadedMovies+'&title=0&byline=0&portrait=0" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>'
       );
