@@ -1,5 +1,5 @@
 var loadedMovies = 0;
-var movieArray = [87475447,87475447,87475447,87475447]
+var movieArray = [87475447,90633659,90633660,90633661]
 var movieDivArray = ["#m0","#m1","#m2","#m3"];
 var scroller=self.setInterval(function(){checkScroll()},400);
 var activeMenu = "movie";
