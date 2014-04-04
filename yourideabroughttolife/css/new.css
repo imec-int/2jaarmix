@@ -237,6 +237,7 @@ h3 a{
 
 @media only screen and (min-width: 1280px) {
 	#movie .videoWrapper{width: 1280px; padding-bottom: 720px; margin-top: 25px;}
+	#photos .videoWrapper{width: 1280px; padding-bottom: 720px; margin-top: 25px;}
 }
 
 /*
