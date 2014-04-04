@@ -17,7 +17,8 @@ function initCarousel(){
       navigation : true, // Show next and prev buttons
       slideSpeed : 300,
       paginationSpeed : 400,
-      singleItem:true
+      singleItem:true,
+      navigationText : ["vorige","volgende"]
 
   });
 
@@ -26,7 +27,8 @@ function initCarousel(){
       navigation : true, // Show next and prev buttons
       slideSpeed : 300,
       paginationSpeed : 400,
-      singleItem:true
+      singleItem:true,
+      navigationText : ["vorige","volgende"]
 
       // "singleItem:true" is a shortcut for:
       // items : 1,
