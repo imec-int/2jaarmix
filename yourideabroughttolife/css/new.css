@@ -290,6 +290,8 @@ h3 a{
 	overflow: hidden;
 }
 
+
+
 .presentation{
 	overflow: hidden;
 	margin-bottom: 40px;
@@ -328,9 +330,40 @@ h3 a{
 	background-size: cover;
 }
 
+.debatContainer{
+	overflow: hidden;
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.debat{
+	overflow: hidden;
+	margin-bottom: 40px;
+	width: 48%;
+	margin-left: 1%;
+	margin-right: auto;
+	background-color: rgba(255,255,255,0.7);
+	float:left;
+}
+
+#d_1{
+	background-image: url("../img/Peter_Vandermeersch.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#d_2{
+	background-image: url("../img/Dirk_Declippeleir.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
 @media screen and (max-device-width: 480px), (max-device-width: 768px)  {
 	.slides{width: 100%;float:none; ;}
-	.presenter{width: 100%;;float:none;}
+	.presenter{width: 100%;float:none;}
+	.debat{width: 100%;float:none;}
+	.mediumVideo{width: 90%;}
 }
 
 #contact{
