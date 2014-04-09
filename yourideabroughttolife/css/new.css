@@ -229,6 +229,15 @@ h3 a{
 	height: 100%;
 }
 
+.mediumVideo{
+	overflow: hidden;
+	width: 50%;
+	min-height: auto;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .videoSub{
 	font-size: 28px;
 	text-align: center;
