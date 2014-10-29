@@ -347,6 +347,10 @@ h3 a{
 	background-color: rgba(255,255,255,0.7);
 	float:left;
 }
+.event:hover{
+	background-color: rgba(255,218,239,0.7);
+}
+
 .photoCard{
 	background-repeat: no-repeat;
 	background-size: cover;
