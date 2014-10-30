@@ -197,13 +197,13 @@ h3 a{
 	display: block;
 }*/
 
-#home{
+#movie{
 	background-color: rgba(218,227,232,0.3);
 }
-#events{
+#hackathon{
 	background-color: rgba(189,204,210,0.3);
 }
-#projects{
+#presentaties{
 	background-color: rgba(139,166,180,0.3);
 }
 
@@ -330,15 +330,14 @@ h3 a{
 	background-size: cover;
 }
 
-.eventContainer{
+.debatContainer{
 	overflow: hidden;
 	width: 70%;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-.event{
-	display: block;
+.debat{
 	overflow: hidden;
 	margin-bottom: 40px;
 	width: 48%;
@@ -347,11 +346,15 @@ h3 a{
 	background-color: rgba(255,255,255,0.7);
 	float:left;
 }
-.event:hover{
-	background-color: rgba(255,218,239,0.7);
+
+#d_1{
+	background-image: url("../img/Peter_Vandermeersch.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
-.photoCard{
+#d_2{
+	background-image: url("../img/Dirk_Declippeleir.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
 }
