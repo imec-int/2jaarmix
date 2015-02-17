@@ -1,0 +1,28 @@
+doctype html5
+html
+	head
+		meta(name='viewport', content='initial-scale=1.0, user-scalable=no')
+		title= title
+		link(href='http://fonts.googleapis.com/css?family=Roboto:400,700,400italic,100', rel='stylesheet', type='text/css')
+
+		link(rel='stylesheet', href="/stylesheets/viewer.css")
+
+		script(type='text/javascript', src='http://www.youtube.com/player_api')
+
+		script(type='text/javascript', src='//code.jquery.com/jquery.min.js')
+		script(type='text/javascript', src='/vendor/jquery.tmpl.min.js')
+
+		script(src='/socket.io/socket.io.js')
+		script(type='text/javascript', src='/javascripts/viewer.js')
+	body
+		.container
+			.question Ga je akkoord?
+			.votes
+				.upvotes
+					.fill
+						.number
+					.title Akkoord
+				.downvotes
+					.fill
+						.number
+					.title Niet Akkoord

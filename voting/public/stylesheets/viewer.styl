@@ -1,0 +1,57 @@
+@import style
+
+.question
+	font-size 72px
+
+.container
+	padding 8px
+
+.votes
+	width 100%
+	height 150px
+
+	.upvotes, .downvotes
+		width 100%
+		height 70px
+
+		>.title, >.fill .number
+			color offwhite
+			font-size 36px
+			font-weight bold
+			line-height 70px
+
+		>.title
+			padding-left 18px
+
+		>.fill
+			position absolute
+			top 0px
+			left 0px
+			width 0%
+			height 100%
+			-webkit-transition all 0.5s ease-out
+			text-align right
+
+		>.fill .number
+			padding-right 18px
+
+	.upvotes
+		position absolute
+		left 0px
+		top 0px
+		border 1px solid qgreen
+
+		>.fill
+			background-color qgreen
+
+	.downvotes
+		position absolute
+		left 0px
+		bottom 0px
+		border 1px solid qred
+
+		>.fill
+			background-color qred
+
+
+

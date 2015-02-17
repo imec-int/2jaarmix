@@ -1,0 +1,16 @@
+{
+  "name": "2jaarmix-voting-app",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "3.0.3",
+    "jade": "*",
+    "stylus": "~0.40.3",
+    "socket.io": "~0.9.16",
+    "httpreq": "~0.3.8",
+    "simple-imagemagick": "~0.2.2",
+    "async": "~0.2.9"
+  }
+}

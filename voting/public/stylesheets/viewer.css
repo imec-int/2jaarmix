@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Century Gothic', 'Didact Gothic', CenturyGothic, AppleGothic, CenturyGothic, sans-serif;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  background-color: #333;
+  position: relative;
+  color: #e60800;
+  font-size: 16px;
+}
+a {
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+a,
+.link {
+  text-decoration: underline;
+}
+a:hover,
+.link:hover {
+  text-decoration: none;
+}
+.question {
+  font-size: 72px;
+}
+.container {
+  padding: 8px;
+}
+.votes {
+  width: 100%;
+  height: 150px;
+}
+.votes .upvotes,
+.votes .downvotes {
+  width: 100%;
+  height: 70px;
+}
+.votes .upvotes >.title,
+.votes .downvotes >.title,
+.votes .upvotes >.fill .number,
+.votes .downvotes >.fill .number {
+  color: #f7f7f4;
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 70px;
+}
+.votes .upvotes >.title,
+.votes .downvotes >.title {
+  padding-left: 18px;
+}
+.votes .upvotes >.fill,
+.votes .downvotes >.fill {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 0%;
+  height: 100%;
+  -webkit-transition: all 0.5s ease-out;
+  text-align: right;
+}
+.votes .upvotes >.fill .number,
+.votes .downvotes >.fill .number {
+  padding-right: 18px;
+}
+.votes .upvotes {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  border: 1px solid #008000;
+}
+.votes .upvotes >.fill {
+  background-color: #008000;
+}
+.votes .downvotes {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  border: 1px solid #e60800;
+}
+.votes .downvotes >.fill {
+  background-color: #e60800;
+}
